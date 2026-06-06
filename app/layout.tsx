@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google";
 import { Geist, Geist_Mono } from "next/font/google";
+import { CartProvider } from "../lib/cart-context";
 import "./globals.css";
+
+// Configure the Google Font loader instance
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-dm-sans",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +36,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CartProvider>
+          {children}
+        </CartProvider>
+        </body>
     </html>
   );
 }

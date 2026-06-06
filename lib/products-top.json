@@ -1,0 +1,119 @@
+{
+  "sectionTitle": "Explore Our Toy Universe",
+  "sectionSubtitle": "Find the perfect match for every age, interest, and developmental milestone.",
+  "categories": [
+    { "id": "all", "label": "All Toys" },
+    { "id": "stem", "label": "STEM & Educational" },
+    { "id": "action", "label": "Action Figures & Hero Toys" },
+    { "id": "plush", "label": "Plush & Stuffed Animals" },
+    { "id": "board-games", "label": "Board Games & Puzzles" }
+  ],
+  "products": [
+    {
+      "id": "p001",
+      "categoryId": "stem",
+      "title": "RoboCraft Solar Powered Rover Kit",
+      "ageRange": "8-12 Years",
+      "originalPrice": 45.00,
+      "discountPrice": 34.99,
+      "rating": 4.8,
+      "reviewCount": 124,
+      "badge": "Best Seller",
+      "imageUrl": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    },
+    {
+      "id": "p002",
+      "categoryId": "stem",
+      "title": "Magnetic Building Tiles - 100pc Set",
+      "ageRange": "3+ Years",
+      "originalPrice": 59.99,
+      "discountPrice": 49.99,
+      "rating": 4.9,
+      "reviewCount": 310,
+      "badge": "Top Rated",
+      "imageUrl": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    }
+  ],
+  "topSelling": [
+    {
+      "id": "ts001",
+      "categoryId": "action",
+      "title": "Retro Space Cadet Action Figure",
+      "ageRange": "4+ Years",
+      "originalPrice": 19.99,
+      "discountPrice": 13.99,
+      "rating": 5.0,
+      "reviewCount": 94,
+      "badge": "Hot Item",
+      "imageUrl": "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    },
+    {
+      "id": "ts002",
+      "categoryId": "puzzles",
+      "title": "3D Crystal Castle Puzzle Set",
+      "ageRange": "8+ Years",
+      "originalPrice": 15.99,
+      "discountPrice": 8.99,
+      "rating": 5.0,
+      "reviewCount": 47,
+      "badge": "Top Seller",
+      "imageUrl": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    },
+    {
+      "id": "ts003",
+      "categoryId": "plush",
+      "title": "Cuddle Buddy Pastel Dino Plush",
+      "ageRange": "0+ Years",
+      "originalPrice": 17.99,
+      "discountPrice": 9.99,
+      "rating": 4.9,
+      "reviewCount": 112,
+      "badge": "Best Price",
+      "imageUrl": "https://images.unsplash.com/photo-1559251606-c623743a6d76?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    },
+    {
+      "id": "ts004",
+      "categoryId": "stem",
+      "title": "KidGlow Interactive World Globe",
+      "ageRange": "5+ Years",
+      "originalPrice": 20.99,
+      "discountPrice": 8.99,
+      "rating": 4.8,
+      "reviewCount": 63,
+      "badge": "Clearance",
+      "imageUrl": "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    },
+    {
+      "id": "ts005",
+      "categoryId": "board-games",
+      "title": "Junior Detective Board Game",
+      "ageRange": "6+ Years",
+      "originalPrice": 13.99,
+      "discountPrice": 7.99,
+      "rating": 5.0,
+      "reviewCount": 29,
+      "badge": "Popular",
+      "imageUrl": "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    },
+    {
+      "id": "ts006",
+      "categoryId": "arts-crafts",
+      "title": "Neon Watercolor Painting Pad",
+      "ageRange": "3+ Years",
+      "originalPrice": 12.99,
+      "discountPrice": 6.99,
+      "rating": 4.7,
+      "reviewCount": 81,
+      "badge": "Sale",
+      "imageUrl": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=500",
+      "isAvailable": true
+    }
+  ]
+}
