@@ -8,14 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ToyProduct } from "../../types/store";
 import { useCart } from "../../lib/cart-context";
+import { useWishlist } from "../../lib/wishlist-context";
 import { Star, Maximize2, Heart, RefreshCw } from "lucide-react";
 
 export function ProductCard({ product }: { product: ToyProduct }) {
-  // Pull the clean addToCart method directly from your updated context layer
   const { addToCart } = useCart();
+  const { toggleWishlist, isWishlisted } = useWishlist();
+  const wishlisted = isWishlisted(product.id);
 
   const handleAddToCart = () => {
-    // 🎯 Pass the clean, updated product object straight to the global store matrix
     addToCart(product);
   };
 
@@ -37,8 +38,11 @@ export function ProductCard({ product }: { product: ToyProduct }) {
           <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-pink-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
             <Maximize2 className="h-4 w-4" />
           </button>
-          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-pink-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[40ms]">
-            <Heart className="h-4 w-4" />
+          <button
+            onClick={(e) => { e.preventDefault(); toggleWishlist(product); }}
+            className="h-9 w-9 bg-white rounded-full flex items-center justify-center hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[40ms]"
+          >
+            <Heart className={`h-4 w-4 transition-colors ${wishlisted ? "fill-pink-500 text-pink-500" : "text-slate-700 hover:text-pink-500"}`} />
           </button>
           <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-pink-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[80ms]">
             <RefreshCw className="h-4 w-4" />

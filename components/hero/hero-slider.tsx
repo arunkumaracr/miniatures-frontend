@@ -23,7 +23,7 @@ const SLIDE_DATA: SlideItem[] = [
     titleSecondLine: "On Educational Toys",
     buttonText: "Shop Now",
     bgHex: "bg-[#FFF9EA]", // Sleek warm cream matching your reference mockup
-    imageUrl: "https://images.unsplash.com/photo-1515488042361-404e9250afef?auto=format&fit=crop&q=80&w=1000", // Kids playing happily
+    imageUrl: "/h1banner_1.png", // Kids playing happily
   },
   {
     id: 2,

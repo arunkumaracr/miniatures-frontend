@@ -3,13 +3,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Package, Tag, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Package, Tag, ShoppingCart, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Products", href: "/admin/products", icon: Package },
   { label: "Categories", href: "/admin/categories", icon: Tag },
+  { label: "Orders", href: "/admin/orders", icon: ShoppingCart },
 ];
 
 export function AdminSidebar() {

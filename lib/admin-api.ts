@@ -102,6 +102,33 @@ export async function deleteProduct(id: string) {
   return res.json();
 }
 
+// ─── ORDERS ───────────────────────────────────
+async function safeJson(res: Response) {
+  if (!res.ok) return {};
+  const text = await res.text();
+  try { return JSON.parse(text); } catch { return {}; }
+}
+
+export async function getOrders() {
+  const res = await fetch(`${BASE_URL}/api/orders`, { headers });
+  return safeJson(res);
+}
+
+export async function getOrder(id: string) {
+  const res = await fetch(`${BASE_URL}/api/orders/${id}`, { headers });
+  return safeJson(res);
+}
+
+export async function updateOrderStatus(id: string, status: string) {
+  const res = await fetch(`${BASE_URL}/api/orders/${id}/status`, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ status }),
+  });
+  return safeJson(res);
+}
+
+// ─── IMAGE UPLOAD ─────────────────────────────
 export async function uploadImage(file: File): Promise<string> {
   const formData = new FormData();
   formData.append("image", file);

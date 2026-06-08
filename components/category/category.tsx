@@ -4,21 +4,15 @@ import { fetchCategories } from "../../lib/api";
 import {
   Gamepad2, Boxes, Paintbrush, Rocket, Car,
   Baby, Puzzle, Star, Zap, Globe,
+  Bike, Wand2, Music, Blocks, Rainbow,
 } from "lucide-react";
 
 // Map icon string names from DB to Lucide components
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  Boxes,
-  Rocket,
-  Gamepad2,
-  Car,
-  Paintbrush,
-  Baby,
-  Puzzle,
-  Star,
-  Zap,
-  Globe,
-  grid: Boxes, // fallback for "all"
+  Boxes, Rocket, Gamepad2, Car, Paintbrush,
+  Baby, Puzzle, Star, Zap, Globe,
+  Bike, Wand2, Music, Blocks, Rainbow,
+  grid: Boxes,
 };
 
 export async function CategoryShowcase() {

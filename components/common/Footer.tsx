@@ -77,23 +77,23 @@ export function Footer() {
 
           {/* About Us Link Matrix */}
           <div className="space-y-4">
-            <h3 className="text-md font-black tracking-tight text-white uppercase">About Us</h3>
+            <h3 className="text-md font-black tracking-tight text-white uppercase">Company</h3>
             <ul className="space-y-3 text-sm font-medium text-slate-400">
-              <li><Link href="/story" className="hover:text-pink-500 transition-colors">Rave's Story</Link></li>
-              <li><Link href="/careers" className="hover:text-pink-500 transition-colors">Work With Us</Link></li>
-              <li><Link href="/news" className="hover:text-pink-500 transition-colors">Corporate News</Link></li>
-              <li><Link href="/investors" className="hover:text-pink-500 transition-colors">Investors</Link></li>
+              <li><Link href="/about" className="hover:text-pink-500 transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-pink-500 transition-colors">Contact Us</Link></li>
+              <li><Link href="/help" className="hover:text-pink-500 transition-colors">Help & Support</Link></li>
+              <li><Link href="/track" className="hover:text-pink-500 transition-colors">Track Order</Link></li>
             </ul>
           </div>
 
           {/* Useful Info Links Matrix */}
           <div className="space-y-4">
-            <h3 className="text-md font-black tracking-tight text-white uppercase">Useful Links</h3>
+            <h3 className="text-md font-black tracking-tight text-white uppercase">Legal</h3>
             <ul className="space-y-3 text-sm font-medium text-slate-400">
-              <li><Link href="/payment" className="hover:text-pink-500 transition-colors">Secure Payment</Link></li>
+              <li><Link href="/terms" className="hover:text-pink-500 transition-colors">Terms & Conditions</Link></li>
               <li><Link href="/privacy" className="hover:text-pink-500 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-pink-500 transition-colors">Terms of Use</Link></li>
-              <li><Link href="/archived" className="hover:text-pink-500 transition-colors">Archived Products</Link></li>
+              <li><Link href="/help" className="hover:text-pink-500 transition-colors">Returns Policy</Link></li>
+              <li><Link href="/help" className="hover:text-pink-500 transition-colors">Shipping Info</Link></li>
             </ul>
           </div>
 
