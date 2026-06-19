@@ -1,14 +1,14 @@
 // app/categories/[id]/page.tsx
 "use client";
 
-import { useState, use, useMemo } from "react";
+import { useState, use, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { ProductCard } from "@/components/products/product-card";
 import { ToyProduct } from "@/types/store";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
-import STORE_DATA from "@/lib/products-top.json";
+import { fetchProducts, fetchCategories } from "@/lib/api";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -17,26 +17,22 @@ interface PageProps {
 export default function CategoryDetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
   const router = useRouter();
-  
-  // State for sorting and mobile sidebar toggle visibility
+
   const [sortBy, setSortBy] = useState("default");
   const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [allProducts, setAllProducts] = useState<ToyProduct[]>([]);
+  const [categoriesList, setCategoriesList] = useState<{ id: string; label: string }[]>([]);
 
-  // Read all master inventory records safely
-  const allProducts = [
-    ...(STORE_DATA.products || []),
-    ...(STORE_DATA.topSelling || [])
-  ] as ToyProduct[];
-
-  // Gather categories from JSON data payload
-  const categoriesList = STORE_DATA.categories || [];
+  useEffect(() => {
+    fetchProducts().then((data) => setAllProducts(Array.isArray(data.products) ? data.products : []));
+    fetchCategories().then((data) => setCategoriesList(Array.isArray(data.categories) ? data.categories : []));
+  }, []);
 
   // Handle active sidebar checked changes - route to the new category id view dynamically
   const handleCategoryCheckboxChange = (categoryId: string) => {
     router.push(`/categories/${categoryId}`);
   };
 
-  // Perform filtering and sorting mechanics in memory
   const processedProducts = useMemo(() => {
     let result = [...allProducts];
 

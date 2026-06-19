@@ -4,12 +4,12 @@
 import { useState, use, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, useRouter } from "next/navigation";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { useCart } from "@/lib/cart-context";
 import { ToyProduct } from "@/types/store";
 import { TopSelling } from "@/components/top-selling";
+import { ProductCard } from "@/components/products/product-card";
 import { Star, Heart, Plus, Minus, ChevronRight } from "lucide-react";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -25,6 +25,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
   const [product, setProduct] = useState<ToyProduct | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFoundState, setNotFoundState] = useState(false);
+  const [related, setRelated] = useState<ToyProduct[]>([]);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -35,6 +36,16 @@ export default function ProductDetailsPage({ params }: PageProps) {
           setNotFoundState(true);
         } else {
           setProduct(data.product);
+          // Fetch same-category products for cross-sell
+          fetch(`${BASE_URL}/api/products?categoryId=${data.product.categoryId}`)
+            .then((r) => r.json())
+            .then((res) => {
+              const others: ToyProduct[] = (res.products || []).filter(
+                (p: ToyProduct) => p.id !== data.product.id
+              );
+              setRelated(others.slice(0, 4));
+            })
+            .catch(() => {});
         }
         setLoading(false);
       })
@@ -169,11 +180,11 @@ export default function ProductDetailsPage({ params }: PageProps) {
               <div className="flex items-baseline gap-3 pt-1">
                 {product.originalPrice > product.discountPrice && (
                   <span className="text-base sm:text-lg text-slate-400 line-through font-bold">
-                    ${product.originalPrice.toFixed(2)}
+                    ₹{product.originalPrice.toFixed(2)}
                   </span>
                 )}
                 <span className="text-2xl sm:text-3xl font-black text-pink-600">
-                  ${product.discountPrice.toFixed(2)}
+                  ₹{product.discountPrice.toFixed(2)}
                 </span>
               </div>
 
@@ -268,6 +279,21 @@ export default function ProductDetailsPage({ params }: PageProps) {
             </div>
           </div>
         </main>
+
+        {/* Related Products */}
+        {related.length > 0 && (
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div className="mb-6">
+              <h2 className="text-xl font-black text-slate-900 tracking-tight">You May Also Like</h2>
+              <p className="text-sm text-slate-400 font-medium mt-1">More from the same category</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {related.map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
+          </section>
+        )}
 
         <TopSelling />
       </div>

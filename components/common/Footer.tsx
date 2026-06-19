@@ -107,7 +107,7 @@ export function Footer() {
               </div>
               <div className="text-sm">
                 <span className="font-extrabold text-white block">Address:</span>
-                <span className="font-medium">4517 Washington Ave. Manchester, Kentucky 39495</span>
+                <span className="font-medium">Azad Nagar Chamrajpet Bengaluru 560018</span>
               </div>
             </div>
 
@@ -117,7 +117,7 @@ export function Footer() {
               </div>
               <div className="text-sm">
                 <span className="font-extrabold text-white block">Phone:</span>
-                <span className="font-medium hover:text-pink-500 transition-colors cursor-pointer">+880171889547</span>
+                <span className="font-medium hover:text-pink-500 transition-colors cursor-pointer">+919159947106</span>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ export function Footer() {
 
         {/* Bottom copyright hairline bar */}
         <div className="w-full border-t border-slate-800 mt-12 pt-6 text-center text-xs font-semibold text-slate-500 tracking-wide">
-          &copy; {new Date().getFullYear()} ShopUs. All Rights Reserved. Curran curations sequence layout.
+          &copy; {new Date().getFullYear()} Miniatures & Toys. All Rights Reserved. Curran curations sequence layout.
         </div>
       </div>
 

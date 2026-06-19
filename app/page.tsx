@@ -9,7 +9,7 @@ import { HomeClient } from "@/components/home-client";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-50/40 pb-16">
+    <div className="min-h-screen bg-slate-50/40">
       <Navbar />
       <HeroSlider />
       <CategoryShowcase />

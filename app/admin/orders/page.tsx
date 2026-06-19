@@ -26,7 +26,7 @@ interface Order {
   paymentMethod?: string;
   status: OrderStatus;
   createdAt: string;
-  total?: number;
+  totalAmount?: number;
 }
 
 const STATUS_TABS: { id: string; label: string }[] = [
@@ -238,7 +238,7 @@ export default function OrdersPage() {
                   </td>
                   <td className="px-4 py-3">
                     <span className="font-black text-slate-800 text-sm">
-                      ${Number(order.total).toFixed(2)}
+                      ₹{Number(order.totalAmount).toFixed(2)}
                     </span>
                   </td>
                   <td className="px-4 py-3">
@@ -374,21 +374,21 @@ export default function OrdersPage() {
                           {item.title ?? item.productId}
                         </p>
                         <p className="text-xs text-slate-400 font-medium mt-0.5">
-                          Qty: {item.quantity} × ${Number(item.price).toFixed(2)}
+                          Qty: {item.quantity} × ₹{Number(item.price).toFixed(2)}
                         </p>
                       </div>
                       <span className="text-sm font-black text-slate-900 flex-shrink-0">
-                        ${(item.quantity * item.price).toFixed(2)}
+                        ₹{(item.quantity * item.price).toFixed(2)}
                       </span>
                     </div>
                   ))}
                 </div>
 
                 {/* Total */}
-                {selectedOrder.total != null && (
+                {selectedOrder.totalAmount != null && (
                   <div className="mt-4 border-t border-slate-100 pt-4 flex justify-between text-sm font-black text-slate-900">
                     <span>Total</span>
-                    <span className="text-pink-600">${Number(selectedOrder.total).toFixed(2)}</span>
+                    <span className="text-pink-600">₹{Number(selectedOrder.totalAmount).toFixed(2)}</span>
                   </div>
                 )}
               </div>

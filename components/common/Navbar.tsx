@@ -101,8 +101,9 @@ export function Navbar() {
   }
 
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "Enter" && results.length > 0) {
-      handleSelect(results[0].id);
+    if (e.key === "Enter" && query.trim()) {
+      setShowDropdown(false);
+      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
     }
     if (e.key === "Escape") {
       setShowDropdown(false);
@@ -127,7 +128,7 @@ export function Navbar() {
           <div className="relative h-20 w-30">
             <Image
               src="/mt_logo_new.png"
-              alt="Shopus Toys Logo"
+              alt="Miniatures Toys Logo"
               fill
               priority
               className="object-contain object-left"
@@ -174,7 +175,7 @@ export function Navbar() {
                       {results.length} result{results.length !== 1 ? "s" : ""} found
                     </p>
                   </div>
-                  {results.map((product) => (
+                  {results.slice(0, 5).map((product) => (
                     <button
                       key={product.id}
                       onClick={() => handleSelect(product.id)}
@@ -198,11 +199,11 @@ export function Navbar() {
                         </p>
                         <div className="flex items-center gap-2 mt-0.5">
                           <span className="text-xs font-black text-pink-600">
-                            ${product.discountPrice.toFixed(2)}
+                            ₹{product.discountPrice.toFixed(2)}
                           </span>
                           {product.originalPrice > product.discountPrice && (
                             <span className="text-xs text-slate-400 line-through">
-                              ${product.originalPrice.toFixed(2)}
+                              ₹{product.originalPrice.toFixed(2)}
                             </span>
                           )}
                           {product.badge && (
@@ -217,6 +218,13 @@ export function Navbar() {
                       <Search className="h-3.5 w-3.5 text-slate-300 group-hover:text-pink-400 transition-colors flex-shrink-0" />
                     </button>
                   ))}
+                  <Link
+                    href={`/search?q=${encodeURIComponent(query.trim())}`}
+                    onClick={() => setShowDropdown(false)}
+                    className="flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-black text-pink-500 hover:text-pink-600 hover:bg-pink-50 transition-colors border-t border-slate-100"
+                  >
+                    See all {results.length} results <Search className="h-3 w-3" />
+                  </Link>
                 </>
               )}
             </div>
