@@ -21,10 +21,10 @@ export function ProductCard({ product }: { product: ToyProduct }) {
   };
 
   return (
-    <Card className="overflow-hidden rounded-2xl border border-slate-100 bg-white hover:border-pink-500/30 hover:shadow-lg transition-all duration-300 flex flex-col h-[400px] relative group p-4 text-left">
+    <Card className="overflow-hidden rounded-2xl border border-slate-100 bg-white hover:border-brand-500/30 hover:shadow-lg transition-all duration-300 flex flex-col h-[400px] relative group p-4 text-left">
       
       {/* 📸 TOP SECTION: Explicitly locked height window to prevent bottom crowding */}
-      <div className="relative w-full h-[230px] bg-[#FDF2F8]/60 rounded-xl overflow-hidden flex-shrink-0 mb-3">
+      <div className="relative w-full h-[230px] bg-[#fef3ec]/60 rounded-xl overflow-hidden flex-shrink-0 mb-3">
         <Image
           src={product.imageUrl}
           alt={product.title}
@@ -34,17 +34,17 @@ export function ProductCard({ product }: { product: ToyProduct }) {
         />
 
         {/* 🎯 HOVER ACCENTS PANEL */}
-        <div className="absolute inset-0 bg-pink-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 z-10">
-          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-pink-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
+        <div className="absolute inset-0 bg-brand-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 z-10">
+          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-brand-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
             <Maximize2 className="h-4 w-4" />
           </button>
           <button
             onClick={(e) => { e.preventDefault(); toggleWishlist(product); }}
             className="h-9 w-9 bg-white rounded-full flex items-center justify-center hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[40ms]"
           >
-            <Heart className={`h-4 w-4 transition-colors ${wishlisted ? "fill-pink-500 text-pink-500" : "text-slate-700 hover:text-pink-500"}`} />
+            <Heart className={`h-4 w-4 transition-colors ${wishlisted ? "fill-brand-500 text-brand-500" : "text-slate-700 hover:text-brand-500"}`} />
           </button>
-          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-pink-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[80ms]">
+          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-brand-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[80ms]">
             <RefreshCw className="h-4 w-4" />
           </button>
         </div>
@@ -66,7 +66,7 @@ export function ProductCard({ product }: { product: ToyProduct }) {
 
           {/* Product Title Link Header */}
           <Link href={`/products/${product.id}`} className="block">
-            <h3 className="text-sm font-extrabold text-slate-900 hover:text-pink-500 transition-colors tracking-tight leading-snug line-clamp-2">
+            <h3 className="text-sm font-extrabold text-slate-900 hover:text-brand-500 transition-colors tracking-tight leading-snug line-clamp-2">
               {product.title}
             </h3>
           </Link>
@@ -78,7 +78,7 @@ export function ProductCard({ product }: { product: ToyProduct }) {
                 ₹{product.originalPrice.toFixed(2)}
               </span>
             )}
-            <span className="text-sm font-black text-pink-600">
+            <span className="text-sm font-black text-brand-600">
               ₹{product.discountPrice.toFixed(2)}
             </span>
           </div>
@@ -89,7 +89,7 @@ export function ProductCard({ product }: { product: ToyProduct }) {
       {/* 🛒 BOTTOM RIGHT CORNER: Curved Action Ribbon Button */}
       <button
         onClick={() => addToCart(product)}
-        className="absolute bottom-0 right-0 bg-[#F3E8FF] text-purple-700 hover:bg-pink-500 hover:text-white text-xs font-black uppercase tracking-wider py-3.5 px-6 rounded-tl-2xl transition-all duration-200 active:scale-95 z-20"
+        className="absolute bottom-0 right-0 bg-[#fff5ee] text-[#9a3412] hover:bg-brand-500 hover:text-white text-xs font-black uppercase tracking-wider py-3.5 px-6 rounded-tl-2xl transition-all duration-200 active:scale-95 z-20"
       >
         Add To Cart
       </button>

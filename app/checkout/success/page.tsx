@@ -50,13 +50,13 @@ function SuccessContent() {
       <div className="flex flex-col sm:flex-row gap-3">
         <Link
           href="/"
-          className="flex-1 flex items-center justify-center gap-2 h-12 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-black text-sm uppercase tracking-wider transition-all shadow-md shadow-pink-200 active:scale-[0.98]"
+          className="flex-1 flex items-center justify-center gap-2 h-12 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-black text-sm uppercase tracking-wider transition-all shadow-md shadow-brand-200 active:scale-[0.98]"
         >
           Continue Shopping <ArrowRight className="h-4 w-4" />
         </Link>
         <Link
           href="/track"
-          className="flex-1 flex items-center justify-center gap-2 h-12 rounded-full border-2 border-slate-200 hover:border-pink-300 text-slate-700 hover:text-pink-600 font-black text-sm uppercase tracking-wider transition-all"
+          className="flex-1 flex items-center justify-center gap-2 h-12 rounded-full border-2 border-slate-200 hover:border-brand-300 text-slate-700 hover:text-brand-600 font-black text-sm uppercase tracking-wider transition-all"
         >
           Track Order
         </Link>

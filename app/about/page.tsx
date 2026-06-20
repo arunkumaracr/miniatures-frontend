@@ -8,7 +8,7 @@ const VALUES = [
     icon: Heart,
     title: "Made with Love",
     desc: "Every toy we source is chosen with a parent's eye — safe, enriching, and genuinely fun for kids of all ages.",
-    color: "bg-pink-50 text-pink-500",
+    color: "bg-brand-50 text-brand-500",
   },
   {
     icon: Shield,
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-pink-500 to-purple-600 text-white py-20 px-4 text-center">
+      <section className="bg-gradient-to-br from-[#e8884f] to-[#d4703a] text-white py-20 px-4 text-center">
         <p className="text-sm font-black uppercase tracking-widest text-white/70 mb-3">Our Story</p>
         <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight max-w-2xl mx-auto">
           Bringing Joy to<br />Every Childhood
@@ -74,7 +74,7 @@ export default function AboutPage() {
         {/* Mission */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="text-xs font-black uppercase tracking-widest text-pink-500 mb-3">Our Mission</p>
+            <p className="text-xs font-black uppercase tracking-widest text-brand-500 mb-3">Our Mission</p>
             <h2 className="text-3xl font-black text-slate-900 leading-tight">
               Play is the work<br />of childhood.
             </h2>
@@ -100,13 +100,13 @@ export default function AboutPage() {
 
         {/* Timeline */}
         <section>
-          <p className="text-xs font-black uppercase tracking-widest text-pink-500 mb-2">How We Got Here</p>
+          <p className="text-xs font-black uppercase tracking-widest text-brand-500 mb-2">How We Got Here</p>
           <h2 className="text-2xl font-black text-slate-900 mb-8">Our Journey</h2>
-          <div className="relative border-l-2 border-pink-100 pl-8 space-y-8">
+          <div className="relative border-l-2 border-brand-100 pl-8 space-y-8">
             {MILESTONES.map(({ year, event }) => (
               <div key={year} className="relative">
-                <div className="absolute -left-[2.85rem] h-5 w-5 rounded-full bg-pink-500 border-4 border-white shadow-sm" />
-                <p className="text-xs font-black text-pink-500 uppercase tracking-widest mb-1">{year}</p>
+                <div className="absolute -left-[2.85rem] h-5 w-5 rounded-full bg-brand-500 border-4 border-white shadow-sm" />
+                <p className="text-xs font-black text-brand-500 uppercase tracking-widest mb-1">{year}</p>
                 <p className="text-sm font-medium text-slate-600 leading-relaxed">{event}</p>
               </div>
             ))}
@@ -114,15 +114,15 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-10 text-center border border-pink-100">
-          <Truck className="h-10 w-10 text-pink-400 mx-auto mb-4 stroke-[1.5]" />
+        <section className="bg-gradient-to-br from-brand-50 to-purple-50 rounded-3xl p-10 text-center border border-brand-100">
+          <Truck className="h-10 w-10 text-brand-400 mx-auto mb-4 stroke-[1.5]" />
           <h2 className="text-2xl font-black text-slate-900">Start Shopping Today</h2>
           <p className="text-sm text-slate-500 font-medium mt-2 max-w-sm mx-auto">
             Free shipping on orders above ₹999. Easy 30-day returns. 100% safe products.
           </p>
           <Link
             href="/"
-            className="mt-6 inline-flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-black uppercase tracking-wider px-8 py-3.5 rounded-xl transition-colors shadow-md shadow-pink-200"
+            className="mt-6 inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-black uppercase tracking-wider px-8 py-3.5 rounded-xl transition-colors shadow-md shadow-brand-200"
           >
             Explore Products
           </Link>

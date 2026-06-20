@@ -131,7 +131,7 @@ export default function ProductsPage() {
                 </div>
                 <button
                     onClick={openAdd}
-                    className="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm shadow-pink-200"
+                    className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm shadow-brand-200"
                 >
                     <Plus size={16} /> Add Product
                 </button>
@@ -151,7 +151,7 @@ export default function ProductsPage() {
                         className={cn(
                             "whitespace-nowrap px-3 py-1.5 text-xs font-bold rounded-lg transition-all",
                             filterTab === tab.id
-                                ? "bg-pink-500 text-white"
+                                ? "bg-brand-500 text-white"
                                 : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
                         )}
                     >
@@ -223,7 +223,7 @@ export default function ProductsPage() {
                                                 {product.isAvailable ? "Available" : "Unavailable"}
                                             </span>
                                             {product.isTopSelling && (
-                                                <span className="text-xs font-bold px-2 py-0.5 rounded-full w-fit bg-pink-50 text-pink-500">
+                                                <span className="text-xs font-bold px-2 py-0.5 rounded-full w-fit bg-brand-50 text-brand-500">
                                                     🔥 Top Selling
                                                 </span>
                                             )}
@@ -297,7 +297,7 @@ export default function ProductsPage() {
                                 <input
                                     value={form.title}
                                     onChange={(e) => setForm({ ...form, title: e.target.value })}
-                                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                     placeholder="e.g. RoboCraft Solar Powered Rover Kit"
                                 />
                             </div>
@@ -309,7 +309,7 @@ export default function ProductsPage() {
                                     <select
                                         value={form.categoryId}
                                         onChange={(e) => setForm({ ...form, categoryId: e.target.value })}
-                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                     >
                                         <option value="">Select category</option>
                                         {categories.map((c: any) => (
@@ -322,7 +322,7 @@ export default function ProductsPage() {
                                     <select
                                         value={form.ageRange}
                                         onChange={(e) => setForm({ ...form, ageRange: e.target.value })}
-                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                     >
                                         {AGE_OPTIONS.map((age) => (
                                             <option key={age} value={age}>{age}</option>
@@ -339,7 +339,7 @@ export default function ProductsPage() {
                                         type="number" step="0.01" min="0"
                                         value={form.originalPrice}
                                         onChange={(e) => setForm({ ...form, originalPrice: e.target.value })}
-                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                         placeholder="45.00"
                                     />
                                 </div>
@@ -349,7 +349,7 @@ export default function ProductsPage() {
                                         type="number" step="0.01" min="0"
                                         value={form.discountPrice}
                                         onChange={(e) => setForm({ ...form, discountPrice: e.target.value })}
-                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                         placeholder="34.99"
                                     />
                                 </div>
@@ -363,7 +363,7 @@ export default function ProductsPage() {
                                         type="number" step="0.1" min="0" max="5"
                                         value={form.rating}
                                         onChange={(e) => setForm({ ...form, rating: e.target.value })}
-                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                     />
                                 </div>
                                 <div>
@@ -372,7 +372,7 @@ export default function ProductsPage() {
                                         type="number" min="0"
                                         value={form.reviewCount}
                                         onChange={(e) => setForm({ ...form, reviewCount: e.target.value })}
-                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                        className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                     />
                                 </div>
                             </div>
@@ -383,7 +383,7 @@ export default function ProductsPage() {
                                 <select
                                     value={form.badge}
                                     onChange={(e) => setForm({ ...form, badge: e.target.value })}
-                                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
                                 >
                                     {BADGE_OPTIONS.map((b) => (
                                         <option key={b} value={b}>{b || "— No Badge —"}</option>
@@ -411,7 +411,7 @@ export default function ProductsPage() {
 
                                 {/* File picker */}
                                 <div className="mt-1.5 flex items-center gap-3">
-                                    <label className="flex items-center gap-2 cursor-pointer bg-slate-50 hover:bg-pink-50 border border-slate-200 hover:border-pink-300 text-slate-600 hover:text-pink-600 text-xs font-bold px-4 py-2.5 rounded-lg transition-all">
+                                    <label className="flex items-center gap-2 cursor-pointer bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-300 text-slate-600 hover:text-brand-600 text-xs font-bold px-4 py-2.5 rounded-lg transition-all">
                                         <Upload size={14} />
                                         {uploadingImage ? "Uploading..." : "Choose Image"}
                                         <input
@@ -470,7 +470,7 @@ export default function ProductsPage() {
                                         onClick={() => setForm({ ...form, isTopSelling: !form.isTopSelling })}
                                         className={cn(
                                             "w-10 h-5 rounded-full transition-colors relative cursor-pointer",
-                                            form.isTopSelling ? "bg-pink-500" : "bg-slate-300"
+                                            form.isTopSelling ? "bg-brand-500" : "bg-slate-300"
                                         )}
                                     >
                                         <div className={cn(
@@ -494,7 +494,7 @@ export default function ProductsPage() {
                             <button
                                 onClick={handleSubmit}
                                 disabled={saving}
-                                className="px-6 py-2 text-sm font-bold bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors disabled:opacity-50 shadow-sm shadow-pink-200"
+                                className="px-6 py-2 text-sm font-bold bg-brand-500 hover:bg-brand-600 text-white rounded-lg transition-colors disabled:opacity-50 shadow-sm shadow-brand-200"
                             >
                                 {saving ? "Saving..." : editingId ? "Update Product" : "Add Product"}
                             </button>

@@ -22,7 +22,7 @@ type FormErrors = Partial<Record<keyof CheckoutForm, string>>;
 
 function inputCls(hasError?: boolean) {
   return `w-full border ${
-    hasError ? "border-red-400 focus:ring-red-400" : "border-slate-200 focus:ring-pink-400"
+    hasError ? "border-red-400 focus:ring-red-400" : "border-slate-200 focus:ring-brand-400"
   } rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 transition-all bg-white`;
 }
 
@@ -40,7 +40,7 @@ function Field({
   return (
     <div>
       <label className="text-xs font-black text-slate-600 uppercase tracking-wider">
-        {label} {required && <span className="text-pink-500">*</span>}
+        {label} {required && <span className="text-brand-500">*</span>}
       </label>
       <div className="mt-1.5">{children}</div>
       {error && <p className="text-xs text-red-500 font-semibold mt-1">{error}</p>}
@@ -173,7 +173,7 @@ export default function CheckoutPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-500 hover:text-pink-500 transition-colors mb-8"
+          className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-500 hover:text-brand-500 transition-colors mb-8"
         >
           <ChevronLeft className="h-4 w-4 stroke-[2.5]" /> Continue Shopping
         </Link>
@@ -184,7 +184,7 @@ export default function CheckoutPage() {
             {/* 1. Contact */}
             <section className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-4">
               <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
-                <span className="h-6 w-6 rounded-full bg-pink-500 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
+                <span className="h-6 w-6 rounded-full bg-brand-500 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
                   1
                 </span>
                 Contact Information
@@ -214,7 +214,7 @@ export default function CheckoutPage() {
             {/* 2. Shipping Address */}
             <section className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-4">
               <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
-                <span className="h-6 w-6 rounded-full bg-pink-500 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
+                <span className="h-6 w-6 rounded-full bg-brand-500 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
                   2
                 </span>
                 Shipping Address
@@ -302,21 +302,21 @@ export default function CheckoutPage() {
             {/* 3. Payment */}
             <section className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-4">
               <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
-                <span className="h-6 w-6 rounded-full bg-pink-500 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
+                <span className="h-6 w-6 rounded-full bg-brand-500 text-white text-xs font-black flex items-center justify-center flex-shrink-0">
                   3
                 </span>
                 Payment Method
                 <CreditCard className="h-4 w-4 text-slate-400 ml-auto" />
               </h2>
               <div className="space-y-3">
-                <label className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer border-pink-400 bg-pink-50/30">
+                <label className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer border-brand-400 bg-brand-50/30">
                   <input
                     type="radio"
                     name="payment"
                     value="cod"
                     checked={form.paymentMethod === "cod"}
                     onChange={() => setForm({ ...form, paymentMethod: "cod" })}
-                    className="accent-pink-500 w-4 h-4"
+                    className="accent-brand-500 w-4 h-4"
                   />
                   <div className="flex items-center gap-3 flex-1">
                     <div className="h-9 w-9 rounded-lg bg-green-50 border border-green-100 flex items-center justify-center text-lg flex-shrink-0">
@@ -380,7 +380,7 @@ export default function CheckoutPage() {
             <button
               onClick={handlePlaceOrder}
               disabled={placing}
-              className="w-full h-14 bg-pink-500 hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-2xl transition-all active:scale-[0.99] shadow-md shadow-pink-200 disabled:shadow-none"
+              className="w-full h-14 bg-brand-500 hover:bg-brand-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-2xl transition-all active:scale-[0.99] shadow-md shadow-brand-200 disabled:shadow-none"
             >
               {placing ? "Placing Order..." : `Place Order · $${total.toFixed(2)}`}
             </button>
@@ -457,7 +457,7 @@ export default function CheckoutPage() {
 
               <div className="border-t-2 border-slate-900 pt-4 flex justify-between items-baseline">
                 <span className="text-base font-black text-slate-900">Total</span>
-                <span className="text-2xl font-black text-pink-600">${total.toFixed(2)}</span>
+                <span className="text-2xl font-black text-brand-600">${total.toFixed(2)}</span>
               </div>
             </div>
           </div>

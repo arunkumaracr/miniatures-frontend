@@ -59,7 +59,7 @@ function SearchResults() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Search toys, puzzles, plushies..."
-                className="w-full h-12 pl-5 pr-12 rounded-full border border-slate-200 bg-white text-sm font-medium focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/20 shadow-sm transition-all"
+                className="w-full h-12 pl-5 pr-12 rounded-full border border-slate-200 bg-white text-sm font-medium focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 shadow-sm transition-all"
                 autoFocus
               />
               <div className="absolute right-4 top-3.5 flex items-center gap-2">
@@ -68,11 +68,11 @@ function SearchResults() {
                     type="button"
                     onClick={() => { setInputValue(""); router.push("/search"); }}
                   >
-                    <X className="h-4 w-4 text-slate-400 hover:text-pink-500 transition-colors" />
+                    <X className="h-4 w-4 text-slate-400 hover:text-brand-500 transition-colors" />
                   </button>
                 )}
                 <button type="submit">
-                  <Search className="h-5 w-5 text-pink-500 hover:text-pink-600 transition-colors" />
+                  <Search className="h-5 w-5 text-brand-500 hover:text-brand-600 transition-colors" />
                 </button>
               </div>
             </div>
@@ -85,7 +85,7 @@ function SearchResults() {
                 <h1 className="text-xl font-black text-slate-900">
                   {loading ? "Searching…" : `${results.length} result${results.length !== 1 ? "s" : ""} for`}{" "}
                   {!loading && (
-                    <span className="text-pink-500">"{initialQuery}"</span>
+                    <span className="text-brand-500">"{initialQuery}"</span>
                   )}
                 </h1>
                 {!loading && results.length > 0 && (

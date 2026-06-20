@@ -39,9 +39,9 @@ const SLIDE_DATA: SlideItem[] = [
     subtext: "Perfectly scaled kitchen sets — collect, display, or gift with love.",
     buttonText: "Explore Collection →",
     href: "/categories/all",
-    bgHex: "bg-[#FFF0F6]",
-    accentColor: "bg-pink-500 hover:bg-pink-600",
-    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1000",
+    bgHex: "bg-[#fff5ee]",
+    accentColor: "bg-brand-500 hover:bg-brand-600",
+    imageUrl: "/banner-2.webp",
   },
   {
     id: 3,
@@ -97,7 +97,7 @@ export function HeroSlider() {
               
               {/* Text Layout Element */}
               <div className="md:col-span-6 z-20 space-y-4 md:space-y-6 text-left animate-in fade-in slide-in-from-left-8 duration-500">
-                <span className="text-sm sm:text-base font-black uppercase tracking-wider text-pink-600 block tracking-[0.15em]">
+                <span className="text-sm sm:text-base font-black uppercase tracking-wider text-brand-600 block tracking-[0.15em]">
                   {slide.eyebrow}
                 </span>
 
@@ -147,7 +147,7 @@ export function HeroSlider() {
             aria-label={`Go to slide ${index + 1}`}
             className={`transition-all duration-300 rounded-full ${
               index === currentSlide 
-                ? "w-8 h-2.5 bg-pink-500" // Active stretched layout dot parameter
+                ? "w-8 h-2.5 bg-brand-500" // Active stretched layout dot parameter
                 : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
             }`}
           />

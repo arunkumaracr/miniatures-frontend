@@ -95,7 +95,7 @@ export default function AccountPage() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-5">
               {/* Avatar */}
               <div className="flex flex-col items-center text-center gap-3">
-                <div className="h-16 w-16 rounded-full bg-pink-500 text-white font-black text-xl flex items-center justify-center shadow-md shadow-pink-200">
+                <div className="h-16 w-16 rounded-full bg-brand-500 text-white font-black text-xl flex items-center justify-center shadow-md shadow-brand-200">
                   {initials}
                 </div>
                 <div>
@@ -107,7 +107,7 @@ export default function AccountPage() {
               <div className="border-t border-slate-100 pt-4 space-y-1">
                 <Link
                   href="/account"
-                  className="flex items-center justify-between px-3 py-2.5 rounded-lg bg-pink-50 text-pink-600 text-sm font-bold"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg bg-brand-50 text-brand-600 text-sm font-bold"
                 >
                   <span className="flex items-center gap-2">
                     <Package className="h-4 w-4" /> My Orders
@@ -154,7 +154,7 @@ export default function AccountPage() {
                   <p className="text-sm font-bold text-slate-400">No orders yet</p>
                   <Link
                     href="/"
-                    className="text-xs font-black text-pink-500 hover:text-pink-600 transition-colors"
+                    className="text-xs font-black text-brand-500 hover:text-brand-600 transition-colors"
                   >
                     Start shopping →
                   </Link>

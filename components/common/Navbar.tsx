@@ -145,16 +145,16 @@ export function Navbar() {
             onFocus={() => results.length > 0 && setShowDropdown(true)}
             onKeyDown={handleKeyDown}
             placeholder="Search premium educational toys, plushies, puzzles..."
-            className="w-full h-10 pl-4 pr-10 rounded-full border border-slate-200 text-sm focus:outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-400 transition-all"
+            className="w-full h-10 pl-4 pr-10 rounded-full border border-slate-200 text-sm focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 transition-all"
           />
 
           {/* Icon: loading / clear / search */}
           <div className="absolute right-3.5 top-2.5">
             {loading ? (
-              <Loader2 className="h-5 w-5 text-pink-400 animate-spin" />
+              <Loader2 className="h-5 w-5 text-brand-400 animate-spin" />
             ) : query ? (
               <button onClick={() => { setQuery(""); setResults([]); setShowDropdown(false); }}>
-                <X className="h-5 w-5 text-slate-400 hover:text-pink-500 transition-colors" />
+                <X className="h-5 w-5 text-slate-400 hover:text-brand-500 transition-colors" />
               </button>
             ) : (
               <Search className="h-5 w-5 text-muted-foreground pointer-events-none" />
@@ -179,7 +179,7 @@ export function Navbar() {
                     <button
                       key={product.id}
                       onClick={() => handleSelect(product.id)}
-                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-pink-50 transition-colors text-left border-b border-slate-50 last:border-0 group"
+                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-brand-50 transition-colors text-left border-b border-slate-50 last:border-0 group"
                     >
                       {/* Product Image */}
                       <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0">
@@ -194,11 +194,11 @@ export function Navbar() {
 
                       {/* Product Info */}
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold text-slate-800 group-hover:text-pink-600 transition-colors line-clamp-1">
+                        <p className="text-sm font-bold text-slate-800 group-hover:text-brand-600 transition-colors line-clamp-1">
                           {product.title}
                         </p>
                         <div className="flex items-center gap-2 mt-0.5">
-                          <span className="text-xs font-black text-pink-600">
+                          <span className="text-xs font-black text-brand-600">
                             ₹{product.discountPrice.toFixed(2)}
                           </span>
                           {product.originalPrice > product.discountPrice && (
@@ -215,13 +215,13 @@ export function Navbar() {
                       </div>
 
                       {/* Arrow */}
-                      <Search className="h-3.5 w-3.5 text-slate-300 group-hover:text-pink-400 transition-colors flex-shrink-0" />
+                      <Search className="h-3.5 w-3.5 text-slate-300 group-hover:text-brand-400 transition-colors flex-shrink-0" />
                     </button>
                   ))}
                   <Link
                     href={`/search?q=${encodeURIComponent(query.trim())}`}
                     onClick={() => setShowDropdown(false)}
-                    className="flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-black text-pink-500 hover:text-pink-600 hover:bg-pink-50 transition-colors border-t border-slate-100"
+                    className="flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-black text-brand-500 hover:text-brand-600 hover:bg-brand-50 transition-colors border-t border-slate-100"
                   >
                     See all {results.length} results <Search className="h-3 w-3" />
                   </Link>
@@ -239,7 +239,7 @@ export function Navbar() {
               <>
                 <button
                   onClick={() => setUserMenuOpen((o) => !o)}
-                  className="h-8 w-8 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-black text-xs flex items-center justify-center transition-colors shadow-sm shadow-pink-200"
+                  className="h-8 w-8 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-black text-xs flex items-center justify-center transition-colors shadow-sm shadow-brand-200"
                 >
                   {user.name.charAt(0).toUpperCase()}
                 </button>
@@ -265,15 +265,15 @@ export function Navbar() {
                 )}
               </>
             ) : (
-              <Link href="/auth/login" className="p-2 text-slate-700 hover:text-pink-600 transition-colors flex">
+              <Link href="/auth/login" className="p-2 text-slate-700 hover:text-brand-600 transition-colors flex">
                 <User className="h-5 w-5" />
               </Link>
             )}
           </div>
-          <Link href="/wishlist" className="p-2 text-slate-700 hover:text-pink-600 transition-colors relative hidden sm:block">
+          <Link href="/wishlist" className="p-2 text-slate-700 hover:text-brand-600 transition-colors relative hidden sm:block">
             <Heart className="h-5 w-5" />
             {wishlistCount > 0 && (
-              <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-white shadow-sm">
+              <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-500 text-[10px] font-bold text-white shadow-sm">
                 {wishlistCount}
               </span>
             )}
@@ -281,7 +281,7 @@ export function Navbar() {
           <CartDrawer />
           <button
             onClick={() => setMobileOpen(true)}
-            className="p-2 text-slate-700 hover:text-pink-600 transition-colors md:hidden"
+            className="p-2 text-slate-700 hover:text-brand-600 transition-colors md:hidden"
             aria-label="Open menu"
           >
             <Menu className="h-5 w-5" />
@@ -319,7 +319,7 @@ export function Navbar() {
           <div className="px-5 py-4 border-b border-slate-100">
             {isLoggedIn && user ? (
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-pink-500 text-white font-black text-sm flex items-center justify-center flex-shrink-0 shadow-sm shadow-pink-200">
+                <div className="h-10 w-10 rounded-full bg-brand-500 text-white font-black text-sm flex items-center justify-center flex-shrink-0 shadow-sm shadow-brand-200">
                   {user.name.charAt(0).toUpperCase()}
                 </div>
                 <div className="min-w-0">
@@ -329,10 +329,10 @@ export function Navbar() {
               </div>
             ) : (
               <div className="flex gap-2">
-                <Link href="/auth/login" className="flex-1 text-center py-2.5 bg-pink-500 hover:bg-pink-600 text-white text-sm font-black rounded-xl transition-colors">
+                <Link href="/auth/login" className="flex-1 text-center py-2.5 bg-brand-500 hover:bg-brand-600 text-white text-sm font-black rounded-xl transition-colors">
                   Sign In
                 </Link>
-                <Link href="/auth/register" className="flex-1 text-center py-2.5 border border-slate-200 hover:border-pink-300 text-slate-700 text-sm font-black rounded-xl transition-colors">
+                <Link href="/auth/register" className="flex-1 text-center py-2.5 border border-slate-200 hover:border-brand-300 text-slate-700 text-sm font-black rounded-xl transition-colors">
                   Register
                 </Link>
               </div>
@@ -349,7 +349,7 @@ export function Navbar() {
                 <Link
                   key={cat.id}
                   href={`/categories/${cat.id}`}
-                  className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-pink-50 hover:text-pink-600 transition-colors"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors"
                 >
                   {cat.label}
                   <ChevronRight className="h-4 w-4 text-slate-300" />
@@ -363,16 +363,16 @@ export function Navbar() {
           {/* Account links */}
           <div className="px-5 py-3 space-y-0.5">
             {isLoggedIn && (
-              <Link href="/account" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-pink-50 hover:text-pink-600 transition-colors">
+              <Link href="/account" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
                 <Package className="h-4 w-4 text-slate-400" /> My Orders
               </Link>
             )}
-            <Link href="/wishlist" className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-pink-50 hover:text-pink-600 transition-colors">
+            <Link href="/wishlist" className="flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
               <span className="flex items-center gap-3">
                 <Heart className="h-4 w-4 text-slate-400" /> Wishlist
               </span>
               {wishlistCount > 0 && (
-                <span className="h-5 min-w-5 px-1 rounded-full bg-pink-500 text-[10px] font-bold text-white flex items-center justify-center">
+                <span className="h-5 min-w-5 px-1 rounded-full bg-brand-500 text-[10px] font-bold text-white flex items-center justify-center">
                   {wishlistCount}
                 </span>
               )}
@@ -383,10 +383,10 @@ export function Navbar() {
 
           {/* Help links */}
           <div className="px-5 py-3 space-y-0.5">
-            <Link href="/track" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-pink-50 hover:text-pink-600 transition-colors">
+            <Link href="/track" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
               <Truck className="h-4 w-4 text-slate-400" /> Track Order
             </Link>
-            <Link href="/help" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-pink-50 hover:text-pink-600 transition-colors">
+            <Link href="/help" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
               <HelpCircle className="h-4 w-4 text-slate-400" /> Help & Support
             </Link>
           </div>
@@ -413,12 +413,12 @@ export function Navbar() {
               <Link
                 key={cat.id}
                 href={`/categories/${cat.id}`}
-                className="hover:text-pink-500 transition-colors"
+                className="hover:text-brand-500 transition-colors"
               >
                 {cat.label}
               </Link>
             ))}
-            <span className="ml-auto text-pink-600 font-extrabold animate-pulse">🔥 Flash Sale: 70% Off!</span>
+            <span className="ml-auto text-brand-600 font-extrabold animate-pulse">🔥 Flash Sale: 70% Off!</span>
           </div>
         </div>
       )}

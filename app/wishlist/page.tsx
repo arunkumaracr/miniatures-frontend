@@ -27,7 +27,7 @@ export default function WishlistPage() {
           {wishlist.length > 0 && (
             <Link
               href="/"
-              className="text-xs font-black text-pink-500 hover:text-pink-600 transition-colors flex items-center gap-1"
+              className="text-xs font-black text-brand-500 hover:text-brand-600 transition-colors flex items-center gap-1"
             >
               Continue shopping <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -36,14 +36,14 @@ export default function WishlistPage() {
 
         {wishlist.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center justify-center py-24 gap-4">
-            <div className="h-16 w-16 rounded-full bg-pink-50 flex items-center justify-center">
-              <Heart className="h-8 w-8 text-pink-300 stroke-[1.5]" />
+            <div className="h-16 w-16 rounded-full bg-brand-50 flex items-center justify-center">
+              <Heart className="h-8 w-8 text-brand-300 stroke-[1.5]" />
             </div>
             <p className="text-base font-black text-slate-500">Your wishlist is empty</p>
             <p className="text-sm text-slate-400 font-medium">Save items you love and come back to them anytime.</p>
             <Link
               href="/"
-              className="mt-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-black uppercase tracking-wider px-6 py-3 rounded-xl transition-colors"
+              className="mt-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-black uppercase tracking-wider px-6 py-3 rounded-xl transition-colors"
             >
               Explore Products
             </Link>
@@ -64,7 +64,7 @@ export default function WishlistPage() {
                   className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col group"
                 >
                   {/* Image */}
-                  <Link href={`/products/${product.id}`} className="relative h-52 bg-[#FDF2F8]/60 flex-shrink-0 block overflow-hidden">
+                  <Link href={`/products/${product.id}`} className="relative h-52 bg-[#fef3ec]/60 flex-shrink-0 block overflow-hidden">
                     <Image
                       src={product.imageUrl}
                       alt={product.title}
@@ -82,13 +82,13 @@ export default function WishlistPage() {
                   {/* Details */}
                   <div className="p-4 flex flex-col flex-1">
                     <Link href={`/products/${product.id}`} className="block mb-1">
-                      <h3 className="text-sm font-bold text-slate-800 hover:text-pink-500 transition-colors line-clamp-2 leading-snug">
+                      <h3 className="text-sm font-bold text-slate-800 hover:text-brand-500 transition-colors line-clamp-2 leading-snug">
                         {product.title}
                       </h3>
                     </Link>
 
                     <div className="flex items-center gap-2 mt-1 mb-4">
-                      <span className="text-sm font-black text-pink-600">
+                      <span className="text-sm font-black text-brand-600">
                         ₹{product.discountPrice.toFixed(2)}
                       </span>
                       {savePct > 0 && (
@@ -102,7 +102,7 @@ export default function WishlistPage() {
                       <button
                         onClick={() => addToCart(product)}
                         disabled={!product.isAvailable}
-                        className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-pink-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-black uppercase tracking-wider py-2.5 rounded-xl transition-all active:scale-95"
+                        className="flex-1 flex items-center justify-center gap-2 bg-[#e8884f] hover:bg-[#d4703a] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-black uppercase tracking-wider py-2.5 rounded-xl transition-all active:scale-95"
                       >
                         <ShoppingCart className="h-3.5 w-3.5" />
                         {product.isAvailable ? "Add to Cart" : "Out of Stock"}

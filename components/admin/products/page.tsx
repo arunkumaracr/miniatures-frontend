@@ -113,7 +113,7 @@ export default function ProductsPage() {
         </div>
         <button
           onClick={openAdd}
-          className="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors"
+          className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors"
         >
           <Plus size={16} /> Add Product
         </button>
@@ -162,7 +162,7 @@ export default function ProductsPage() {
                         {product.isAvailable ? "Available" : "Unavailable"}
                       </span>
                       {product.isTopSelling && (
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-full w-fit bg-pink-50 text-pink-500">
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-full w-fit bg-brand-50 text-brand-500">
                           Top Selling
                         </span>
                       )}
@@ -212,7 +212,7 @@ export default function ProductsPage() {
                 <input
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   placeholder="Product title"
                 />
               </div>
@@ -223,7 +223,7 @@ export default function ProductsPage() {
                 <select
                   value={form.categoryId}
                   onChange={(e) => setForm({ ...form, categoryId: e.target.value })}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                   <option value="">Select category</option>
                   {categories.map((c: any) => (
@@ -240,7 +240,7 @@ export default function ProductsPage() {
                     type="number"
                     value={form.originalPrice}
                     onChange={(e) => setForm({ ...form, originalPrice: e.target.value })}
-                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     placeholder="19.99"
                   />
                 </div>
@@ -250,7 +250,7 @@ export default function ProductsPage() {
                     type="number"
                     value={form.discountPrice}
                     onChange={(e) => setForm({ ...form, discountPrice: e.target.value })}
-                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     placeholder="13.99"
                   />
                 </div>
@@ -262,7 +262,7 @@ export default function ProductsPage() {
                 <input
                   value={form.imageUrl}
                   onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   placeholder="https://..."
                 />
               </div>
@@ -276,7 +276,7 @@ export default function ProductsPage() {
                     min="0" max="5" step="0.1"
                     value={form.rating}
                     onChange={(e) => setForm({ ...form, rating: e.target.value })}
-                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   />
                 </div>
                 <div>
@@ -285,7 +285,7 @@ export default function ProductsPage() {
                     type="number"
                     value={form.reviewCount}
                     onChange={(e) => setForm({ ...form, reviewCount: e.target.value })}
-                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   />
                 </div>
               </div>
@@ -297,7 +297,7 @@ export default function ProductsPage() {
                     type="checkbox"
                     checked={form.isAvailable}
                     onChange={(e) => setForm({ ...form, isAvailable: e.target.checked })}
-                    className="accent-pink-500 w-4 h-4"
+                    className="accent-brand-500 w-4 h-4"
                   />
                   <span className="text-sm font-semibold text-slate-700">Available</span>
                 </label>
@@ -306,7 +306,7 @@ export default function ProductsPage() {
                     type="checkbox"
                     checked={form.isTopSelling}
                     onChange={(e) => setForm({ ...form, isTopSelling: e.target.checked })}
-                    className="accent-pink-500 w-4 h-4"
+                    className="accent-brand-500 w-4 h-4"
                   />
                   <span className="text-sm font-semibold text-slate-700">Top Selling</span>
                 </label>
@@ -324,7 +324,7 @@ export default function ProductsPage() {
               <button
                 onClick={handleSubmit}
                 disabled={saving}
-                className="px-4 py-2 text-sm font-bold bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors disabled:opacity-50"
+                className="px-4 py-2 text-sm font-bold bg-brand-500 hover:bg-brand-600 text-white rounded-lg transition-colors disabled:opacity-50"
               >
                 {saving ? "Saving..." : editingId ? "Update Product" : "Add Product"}
               </button>

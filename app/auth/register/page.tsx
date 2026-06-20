@@ -97,7 +97,7 @@ export default function RegisterPage() {
               type="text"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
               placeholder="Your full name"
               autoComplete="name"
             />
@@ -111,7 +111,7 @@ export default function RegisterPage() {
               type="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
               placeholder="you@example.com"
               autoComplete="email"
             />
@@ -126,7 +126,7 @@ export default function RegisterPage() {
                 type={showPassword ? "text" : "password"}
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
-                className="w-full border border-slate-200 rounded-lg px-3 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+                className="w-full border border-slate-200 rounded-lg px-3 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
                 placeholder="Min. 6 characters"
                 autoComplete="new-password"
               />
@@ -148,7 +148,7 @@ export default function RegisterPage() {
               type="password"
               value={form.confirmPassword}
               onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
-              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
               placeholder="Re-enter password"
               autoComplete="new-password"
             />
@@ -157,7 +157,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-12 bg-pink-500 hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all shadow-sm shadow-pink-200 disabled:shadow-none flex items-center justify-center gap-2"
+            className="w-full h-12 bg-brand-500 hover:bg-brand-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all shadow-sm shadow-brand-200 disabled:shadow-none flex items-center justify-center gap-2"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             {loading ? "Creating account..." : "Create Account"}
@@ -166,7 +166,7 @@ export default function RegisterPage() {
 
         <p className="text-center text-sm text-slate-500 font-medium">
           Already have an account?{" "}
-          <Link href="/auth/login" className="font-black text-pink-500 hover:text-pink-600 transition-colors">
+          <Link href="/auth/login" className="font-black text-brand-500 hover:text-brand-600 transition-colors">
             Sign in
           </Link>
         </p>

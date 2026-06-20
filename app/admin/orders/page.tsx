@@ -149,7 +149,7 @@ export default function OrdersPage() {
             className={cn(
               "whitespace-nowrap px-3 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5",
               filterTab === tab.id
-                ? "bg-pink-500 text-white"
+                ? "bg-brand-500 text-white"
                 : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
             )}
           >
@@ -266,7 +266,7 @@ export default function OrdersPage() {
                         onChange={(e) =>
                           handleStatusChange(order.id, e.target.value as OrderStatus)
                         }
-                        className="text-xs font-bold border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:border-pink-400 cursor-pointer disabled:opacity-40"
+                        className="text-xs font-bold border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:border-brand-400 cursor-pointer disabled:opacity-40"
                       >
                         {STATUS_OPTIONS.map((s) => (
                           <option key={s} value={s} className="capitalize">
@@ -330,7 +330,7 @@ export default function OrdersPage() {
                   onChange={(e) =>
                     handleStatusChange(selectedOrder.id, e.target.value as OrderStatus)
                   }
-                  className="text-sm font-bold border border-slate-200 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-pink-400 cursor-pointer disabled:opacity-40"
+                  className="text-sm font-bold border border-slate-200 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-brand-400 cursor-pointer disabled:opacity-40"
                 >
                   {STATUS_OPTIONS.map((s) => (
                     <option key={s} value={s} className="capitalize">
@@ -388,7 +388,7 @@ export default function OrdersPage() {
                 {selectedOrder.totalAmount != null && (
                   <div className="mt-4 border-t border-slate-100 pt-4 flex justify-between text-sm font-black text-slate-900">
                     <span>Total</span>
-                    <span className="text-pink-600">₹{Number(selectedOrder.totalAmount).toFixed(2)}</span>
+                    <span className="text-brand-600">₹{Number(selectedOrder.totalAmount).toFixed(2)}</span>
                   </div>
                 )}
               </div>

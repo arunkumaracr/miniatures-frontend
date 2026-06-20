@@ -29,19 +29,19 @@ export default function NotFound() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/"
-              className="flex items-center gap-2 h-11 px-6 rounded-full bg-[#A21CAF] hover:bg-pink-600 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+              className="flex items-center gap-2 h-11 px-6 rounded-full bg-[#e8884f] hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
             >
               <Home className="h-4 w-4" /> Back to Home
             </Link>
             <Link
               href="/categories/all"
-              className="flex items-center gap-2 h-11 px-6 rounded-full border border-slate-200 bg-white hover:border-pink-300 text-slate-700 font-black text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
+              className="flex items-center gap-2 h-11 px-6 rounded-full border border-slate-200 bg-white hover:border-brand-300 text-slate-700 font-black text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
             >
               <LayoutGrid className="h-4 w-4" /> Browse Products
             </Link>
             <Link
               href="/search"
-              className="flex items-center gap-2 h-11 px-6 rounded-full border border-slate-200 bg-white hover:border-pink-300 text-slate-700 font-black text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
+              className="flex items-center gap-2 h-11 px-6 rounded-full border border-slate-200 bg-white hover:border-brand-300 text-slate-700 font-black text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
             >
               <Search className="h-4 w-4" /> Search
             </Link>

@@ -16,14 +16,14 @@ export function Footer() {
       
       {/* 🟣 LAYER 1: The Floating Purple Trust Banner Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -top-12 z-20">
-        <div className="w-full bg-[#A21CAF] rounded-md p-6 lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 shadow-xl">
+        <div className="w-full bg-brand-500 rounded-md p-6 lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 shadow-xl">
           
           {/* Feature 1 */}
           <div className="flex items-center gap-4 text-white border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0 pr-2">
             <Truck className="h-10 w-10 flex-shrink-0 stroke-[1.5]" />
             <div className="text-left">
               <h4 className="text-sm font-black uppercase tracking-wider">Free Shipping</h4>
-              <p className="text-xs text-pink-100 font-medium mt-0.5">When ordering over $100</p>
+              <p className="text-xs text-brand-100 font-medium mt-0.5">When ordering over $100</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ export function Footer() {
             <RotateCcw className="h-10 w-10 flex-shrink-0 stroke-[1.5]" />
             <div className="text-left">
               <h4 className="text-sm font-black uppercase tracking-wider">Free Return</h4>
-              <p className="text-xs text-pink-100 font-medium mt-0.5">Get Return within 30 days</p>
+              <p className="text-xs text-brand-100 font-medium mt-0.5">Get Return within 30 days</p>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export function Footer() {
             <ShieldCheck className="h-10 w-10 flex-shrink-0 stroke-[1.5]" />
             <div className="text-left">
               <h4 className="text-sm font-black uppercase tracking-wider">Secure Payment</h4>
-              <p className="text-xs text-pink-100 font-medium mt-0.5">100% Secure Online Payment</p>
+              <p className="text-xs text-brand-100 font-medium mt-0.5">100% Secure Online Payment</p>
             </div>
           </div>
 
@@ -50,7 +50,7 @@ export function Footer() {
             <Trophy className="h-10 w-10 flex-shrink-0 stroke-[1.5]" />
             <div className="text-left">
               <h4 className="text-sm font-black uppercase tracking-wider">Best Quality</h4>
-              <p className="text-xs text-pink-100 font-medium mt-0.5">Original Product Guaranteed</p>
+              <p className="text-xs text-brand-100 font-medium mt-0.5">Original Product Guaranteed</p>
             </div>
           </div>
 
@@ -65,13 +65,13 @@ export function Footer() {
           <div className="space-y-6">
             <Link href="/" className="inline-block">
               <span className="text-2xl font-black tracking-tighter text-white">
-                Shop<span className="text-pink-500">Us</span>
+                Shop<span className="text-brand-500">Us</span>
               </span>
             </Link>
             <ul className="space-y-3 text-sm font-medium text-slate-400">
-              <li><Link href="/track" className="hover:text-pink-500 transition-colors">Track Order</Link></li>
-              <li><Link href="/delivery" className="hover:text-pink-500 transition-colors">Delivery & Returns</Link></li>
-              <li><Link href="/warranty" className="hover:text-pink-500 transition-colors">Warranty</Link></li>
+              <li><Link href="/track" className="hover:text-brand-500 transition-colors">Track Order</Link></li>
+              <li><Link href="/delivery" className="hover:text-brand-500 transition-colors">Delivery & Returns</Link></li>
+              {/* <li><Link href="/warranty" className="hover:text-brand-500 transition-colors">Warranty</Link></li> */}
             </ul>
           </div>
 
@@ -79,10 +79,10 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-md font-black tracking-tight text-white uppercase">Company</h3>
             <ul className="space-y-3 text-sm font-medium text-slate-400">
-              <li><Link href="/about" className="hover:text-pink-500 transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-pink-500 transition-colors">Contact Us</Link></li>
-              <li><Link href="/help" className="hover:text-pink-500 transition-colors">Help & Support</Link></li>
-              <li><Link href="/track" className="hover:text-pink-500 transition-colors">Track Order</Link></li>
+              <li><Link href="/about" className="hover:text-brand-500 transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-brand-500 transition-colors">Contact Us</Link></li>
+              <li><Link href="/help" className="hover:text-brand-500 transition-colors">Help & Support</Link></li>
+              <li><Link href="/track" className="hover:text-brand-500 transition-colors">Track Order</Link></li>
             </ul>
           </div>
 
@@ -90,10 +90,10 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-md font-black tracking-tight text-white uppercase">Legal</h3>
             <ul className="space-y-3 text-sm font-medium text-slate-400">
-              <li><Link href="/terms" className="hover:text-pink-500 transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/privacy" className="hover:text-pink-500 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/help" className="hover:text-pink-500 transition-colors">Returns Policy</Link></li>
-              <li><Link href="/help" className="hover:text-pink-500 transition-colors">Shipping Info</Link></li>
+              <li><Link href="/terms" className="hover:text-brand-500 transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/privacy" className="hover:text-brand-500 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/help" className="hover:text-brand-500 transition-colors">Returns Policy</Link></li>
+              <li><Link href="/help" className="hover:text-brand-500 transition-colors">Shipping Info</Link></li>
             </ul>
           </div>
 
@@ -117,7 +117,7 @@ export function Footer() {
               </div>
               <div className="text-sm">
                 <span className="font-extrabold text-white block">Phone:</span>
-                <span className="font-medium hover:text-pink-500 transition-colors cursor-pointer">+919159947106</span>
+                <span className="font-medium hover:text-brand-500 transition-colors cursor-pointer">+919159947106</span>
               </div>
             </div>
 

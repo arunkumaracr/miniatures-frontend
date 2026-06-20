@@ -74,15 +74,15 @@ export default function CategoryDetailPage({ params }: PageProps) {
                 {categoriesList.map((cat) => (
                   <label 
                     key={cat.id} 
-                    className="flex items-center gap-3 text-sm font-semibold text-slate-600 hover:text-pink-500 transition-colors cursor-pointer group"
+                    className="flex items-center gap-3 text-sm font-semibold text-slate-600 hover:text-brand-500 transition-colors cursor-pointer group"
                   >
                     <input
                       type="checkbox"
                       checked={resolvedParams.id === cat.id}
                       onChange={() => handleCategoryCheckboxChange(cat.id)}
-                      className="h-4 w-4 rounded border-slate-300 text-pink-500 focus:ring-pink-400 cursor-pointer accent-pink-500"
+                      className="h-4 w-4 rounded border-slate-300 text-brand-500 focus:ring-brand-400 cursor-pointer accent-brand-500"
                     />
-                    <span className={resolvedParams.id === cat.id ? "text-pink-600 font-extrabold" : "group-hover:translate-x-0.5 transition-transform"}>
+                    <span className={resolvedParams.id === cat.id ? "text-brand-600 font-extrabold" : "group-hover:translate-x-0.5 transition-transform"}>
                       {cat.label}
                     </span>
                   </label>
@@ -114,7 +114,7 @@ export default function CategoryDetailPage({ params }: PageProps) {
                     <select
                       value={sortBy}
                       onChange={(e) => setSortBy(e.target.value)}
-                      className="border border-slate-200 rounded-lg py-1.5 pl-2.5 pr-8 bg-white font-bold text-slate-800 focus:outline-none focus:border-pink-400 appearance-none cursor-pointer shadow-sm text-xs sm:text-sm"
+                      className="border border-slate-200 rounded-lg py-1.5 pl-2.5 pr-8 bg-white font-bold text-slate-800 focus:outline-none focus:border-brand-400 appearance-none cursor-pointer shadow-sm text-xs sm:text-sm"
                     >
                       <option value="default">Default</option>
                       <option value="price-low">Price: Low to High</option>

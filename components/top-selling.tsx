@@ -29,7 +29,7 @@ export function TopSelling() {
         </h2>
         <Link
           href="/"
-          className="text-xs sm:text-sm font-bold text-slate-500 hover:text-pink-500 transition-colors"
+          className="text-xs sm:text-sm font-bold text-slate-500 hover:text-brand-500 transition-colors"
         >
           View All
         </Link>

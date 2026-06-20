@@ -76,7 +76,7 @@ export default function AdminDashboard() {
   const cards = [
     { label: "Total Products", value: stats.totalProducts, icon: Package, color: "text-blue-600 bg-blue-50" },
     { label: "Categories", value: stats.totalCategories, icon: Tag, color: "text-purple-600 bg-purple-50" },
-    { label: "Top Selling", value: stats.topSelling, icon: TrendingUp, color: "text-pink-600 bg-pink-50" },
+    { label: "Top Selling", value: stats.topSelling, icon: TrendingUp, color: "text-brand-600 bg-brand-50" },
     { label: "Available", value: stats.available, icon: CheckCircle, color: "text-green-600 bg-green-50" },
     { label: "Total Orders", value: stats.totalOrders, icon: ShoppingCart, color: "text-orange-600 bg-orange-50" },
     {
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
               <h2 className="text-sm font-black text-slate-900">Recent Orders</h2>
               <Link
                 href="/admin/orders"
-                className="text-xs font-bold text-pink-500 hover:text-pink-600 transition-colors"
+                className="text-xs font-bold text-brand-500 hover:text-brand-600 transition-colors"
               >
                 View all →
               </Link>

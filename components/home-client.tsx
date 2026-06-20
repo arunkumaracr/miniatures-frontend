@@ -56,7 +56,7 @@ export function HomeClient() {
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
       {/* Section Headers */}
       <div className="text-center space-y-2 mb-10">
-        <span className="text-xs font-black uppercase tracking-widest text-pink-500 bg-pink-50 px-3 py-1 rounded-full">
+        <span className="text-xs font-black uppercase tracking-widest text-brand-500 bg-brand-50 px-3 py-1 rounded-full">
           Our Catalog
         </span>
         <h2 className="text-3xl font-black text-slate-900 tracking-tight md:text-4xl">
@@ -75,7 +75,7 @@ export function HomeClient() {
             onClick={() => setActiveTab(category.id)}
             className={`whitespace-nowrap px-4 py-2 text-xs font-black uppercase tracking-wider rounded-md transition-all duration-200 ${
               activeTab === category.id
-                ? "bg-pink-500 text-white shadow-md shadow-pink-500/20"
+                ? "bg-brand-500 text-white shadow-md shadow-brand-500/20"
                 : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
             }`}
           >

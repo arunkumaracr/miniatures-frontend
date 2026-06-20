@@ -66,7 +66,7 @@ export default function TermsPage() {
 
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 sm:px-6 py-12 pb-24">
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 sm:p-10 space-y-8">
-          <p className="text-sm text-slate-500 font-medium leading-relaxed border-l-4 border-pink-400 pl-4">
+          <p className="text-sm text-slate-500 font-medium leading-relaxed border-l-4 border-brand-400 pl-4">
             Please read these Terms & Conditions carefully before using the Miniature Toys platform. These terms govern your access to and use of our website and services.
           </p>
 
@@ -83,7 +83,7 @@ export default function TermsPage() {
             </p>
             <Link
               href="/contact"
-              className="text-xs font-black text-pink-500 hover:text-pink-600 transition-colors"
+              className="text-xs font-black text-brand-500 hover:text-brand-600 transition-colors"
             >
               Contact Support →
             </Link>

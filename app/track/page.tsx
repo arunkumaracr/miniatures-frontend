@@ -96,8 +96,8 @@ export default function TrackOrderPage() {
 
       <main className="flex-1 max-w-2xl mx-auto w-full px-4 sm:px-6 py-12 pb-24">
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-pink-50 mb-4">
-            <Package className="h-7 w-7 text-pink-500 stroke-[1.5]" />
+          <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-brand-50 mb-4">
+            <Package className="h-7 w-7 text-brand-500 stroke-[1.5]" />
           </div>
           <h1 className="text-2xl font-black text-slate-900">Track Your Order</h1>
           <p className="text-sm text-slate-400 font-medium mt-1">
@@ -117,7 +117,7 @@ export default function TrackOrderPage() {
                 value={orderId}
                 onChange={(e) => setOrderId(e.target.value)}
                 placeholder="e.g. 64f3a2b1c9e..."
-                className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white font-mono"
+                className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white font-mono"
               />
             </div>
 
@@ -132,7 +132,7 @@ export default function TrackOrderPage() {
             <button
               type="submit"
               disabled={loading || !orderId.trim()}
-              className="w-full h-12 bg-pink-500 hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm shadow-pink-200 disabled:shadow-none"
+              className="w-full h-12 bg-brand-500 hover:bg-brand-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm shadow-brand-200 disabled:shadow-none"
             >
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
               {loading ? "Looking up..." : "Track Order"}
@@ -142,7 +142,7 @@ export default function TrackOrderPage() {
           {isLoggedIn && (
             <p className="mt-4 text-center text-sm text-slate-400 font-medium">
               Signed in?{" "}
-              <Link href="/account" className="font-black text-pink-500 hover:text-pink-600 transition-colors">
+              <Link href="/account" className="font-black text-brand-500 hover:text-brand-600 transition-colors">
                 View all your orders →
               </Link>
             </p>
@@ -175,7 +175,7 @@ export default function TrackOrderPage() {
               {order.totalAmount != null && (
                 <div className="text-right">
                   <p className="text-xs text-slate-400 font-medium">Total</p>
-                  <p className="text-sm font-black text-pink-600">₹{Number(order.totalAmount).toFixed(2)}</p>
+                  <p className="text-sm font-black text-brand-600">₹{Number(order.totalAmount).toFixed(2)}</p>
                 </div>
               )}
             </div>
@@ -197,26 +197,26 @@ export default function TrackOrderPage() {
                         {idx < STEPS.length - 1 && (
                           <div className={cn(
                             "absolute top-5 left-1/2 w-full h-0.5 -translate-y-1/2",
-                            done && idx < activeStep ? "bg-pink-400" : "bg-slate-200"
+                            done && idx < activeStep ? "bg-brand-400" : "bg-slate-200"
                           )} />
                         )}
                         {/* Circle */}
                         <div className={cn(
                           "relative z-10 h-10 w-10 rounded-full flex items-center justify-center border-2 transition-all",
                           active
-                            ? "bg-pink-500 border-pink-500 shadow-lg shadow-pink-200"
+                            ? "bg-brand-500 border-brand-500 shadow-lg shadow-brand-200"
                             : done
-                            ? "bg-pink-100 border-pink-300"
+                            ? "bg-brand-100 border-brand-300"
                             : "bg-white border-slate-200"
                         )}>
                           <Icon className={cn(
                             "h-4 w-4",
-                            active ? "text-white" : done ? "text-pink-500" : "text-slate-300"
+                            active ? "text-white" : done ? "text-brand-500" : "text-slate-300"
                           )} />
                         </div>
                         <p className={cn(
                           "mt-2 text-[10px] font-bold text-center leading-tight",
-                          active ? "text-pink-500" : done ? "text-slate-600" : "text-slate-300"
+                          active ? "text-brand-500" : done ? "text-slate-600" : "text-slate-300"
                         )}>
                           {step.label}
                         </p>

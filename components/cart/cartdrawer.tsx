@@ -29,10 +29,10 @@ export function CartDrawer() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button className="relative p-2 text-slate-700 hover:text-pink-600 transition-colors">
+        <button className="relative p-2 text-slate-700 hover:text-brand-600 transition-colors">
           <ShoppingBag className="h-6 w-6" />
           {cartCount > 0 && (
-            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-white shadow-sm animate-in zoom-in-50 duration-200">
+            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-500 text-[10px] font-bold text-white shadow-sm animate-in zoom-in-50 duration-200">
               {cartCount}
             </span>
           )}

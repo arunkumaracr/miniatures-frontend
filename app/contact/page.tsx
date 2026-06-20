@@ -12,7 +12,7 @@ const CONTACT_CARDS = [
     detail: "support@miniaturetoys.in",
     sub: "We reply within 24 hours",
     href: "mailto:support@miniaturetoys.in",
-    color: "bg-pink-50 text-pink-500",
+    color: "bg-brand-50 text-brand-500",
   },
   {
     icon: Phone,
@@ -80,7 +80,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-pink-500 to-purple-600 text-white py-14 px-4 text-center">
+      <div className="bg-gradient-to-br from-[#e8884f] to-[#d4703a] text-white py-14 px-4 text-center">
         <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/15 mb-4">
           <Mail className="h-7 w-7 text-white" />
         </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
             <a
               key={title}
               href={href}
-              className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex flex-col gap-3 hover:border-pink-200 transition-colors"
+              className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex flex-col gap-3 hover:border-brand-200 transition-colors"
             >
               <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${color}`}>
                 <Icon className="h-5 w-5" />
@@ -125,7 +125,7 @@ export default function ContactPage() {
               </p>
               <button
                 onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                className="mt-2 text-sm font-black text-pink-500 hover:text-pink-600 transition-colors"
+                className="mt-2 text-sm font-black text-brand-500 hover:text-brand-600 transition-colors"
               >
                 Send another message →
               </button>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Arunkumar"
-                      className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+                      className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
                     />
                   </div>
                   <div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="you@example.com"
-                      className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+                      className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
                     />
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                   <select
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-slate-700"
+                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white text-slate-700"
                   >
                     <option value="">Select a topic...</option>
                     {SUBJECTS.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -176,7 +176,7 @@ export default function ContactPage() {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}
                     placeholder="Describe your issue or question in detail..."
-                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white resize-none"
+                    className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white resize-none"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full h-12 bg-pink-500 hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm shadow-pink-200 disabled:shadow-none"
+                  className="w-full h-12 bg-brand-500 hover:bg-brand-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm shadow-brand-200 disabled:shadow-none"
                 >
                   {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                   {sending ? "Sending..." : "Send Message"}

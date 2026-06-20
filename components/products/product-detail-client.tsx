@@ -34,7 +34,7 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
           {/* ── LEFT: Product Image ── */}
-          <div className="relative bg-[#FDF2F8]/60 flex items-center justify-center p-8 min-h-[420px]">
+          <div className="relative bg-[#fef3ec]/60 flex items-center justify-center p-8 min-h-[420px]">
             {discount > 0 && (
               <div className="absolute top-5 left-5 bg-amber-400 text-white text-xs font-black px-3 py-1.5 rounded-full z-10">
                 -{discount}%
@@ -57,7 +57,7 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
 
             {/* Category + Badge */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-xs font-black uppercase tracking-widest text-pink-500 bg-pink-50 px-3 py-1 rounded-full">
+              <span className="text-xs font-black uppercase tracking-widest text-brand-500 bg-brand-50 px-3 py-1 rounded-full">
                 🧸 TOY UNIVERSE / {product.categoryId.toUpperCase()}
               </span>
               {product.badge && (
@@ -101,7 +101,7 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
                   ${product.originalPrice.toFixed(2)}
                 </span>
               )}
-              <span className="text-3xl font-black text-pink-600">
+              <span className="text-3xl font-black text-brand-600">
                 ${product.discountPrice.toFixed(2)}
               </span>
             </div>
@@ -158,18 +158,18 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
                 onClick={() => toggleWishlist(product)}
                 className={`p-3 rounded-xl border transition-all ${
                   wishlisted
-                    ? "bg-pink-50 border-pink-200 text-pink-500"
-                    : "border-slate-200 text-slate-400 hover:border-pink-200 hover:text-pink-400"
+                    ? "bg-brand-50 border-brand-200 text-brand-500"
+                    : "border-slate-200 text-slate-400 hover:border-brand-200 hover:text-brand-400"
                 }`}
               >
-                <Heart className={`h-4 w-4 ${wishlisted ? "fill-pink-500" : ""}`} />
+                <Heart className={`h-4 w-4 ${wishlisted ? "fill-brand-500" : ""}`} />
               </button>
 
               {/* Add to Cart */}
               <button
                 onClick={handleAddToCart}
                 disabled={!product.isAvailable}
-                className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-pink-500 text-white text-sm font-black uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-purple-200"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#e8884f] hover:bg-[#d4703a] text-white text-sm font-black uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-brand-200"
               >
                 <ShoppingCart className="h-4 w-4" />
                 Add To Cart
@@ -182,14 +182,14 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
                 <span className="font-bold text-slate-500">Category: </span>
                 <Link
                   href={`/categories/${product.categoryId}`}
-                  className="text-pink-500 hover:underline capitalize"
+                  className="text-brand-500 hover:underline capitalize"
                 >
                   {product.categoryId}
                 </Link>
               </p>
               <p>
                 <span className="font-bold text-slate-500">Tags: </span>
-                <span className="text-pink-500">Premium, Safe, KidApproved</span>
+                <span className="text-brand-500">Premium, Safe, KidApproved</span>
               </p>
             </div>
           </div>
@@ -197,7 +197,7 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
       </div>
 
       {/* Trust Badges */}
-      <div className="mt-6 bg-purple-600 rounded-2xl px-8 py-6">
+      <div className="mt-6 bg-[#e8884f] rounded-2xl px-8 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { icon: Truck, title: "Free Shipping", sub: "When ordering over $100" },

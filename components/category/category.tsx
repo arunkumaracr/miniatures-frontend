@@ -27,7 +27,7 @@ export async function CategoryShowcase() {
         </h2>
         <Link
           href="/categories"
-          className="text-xs sm:text-sm font-bold text-slate-500 hover:text-pink-500 transition-colors duration-200"
+          className="text-xs sm:text-sm font-bold text-slate-500 hover:text-brand-500 transition-colors duration-200"
         >
           View All
         </Link>
@@ -40,12 +40,12 @@ export async function CategoryShowcase() {
             <Link
               key={item.id}
               href={`/categories/${item.slug || item.id}`}
-              className="group flex flex-col items-center justify-center text-center p-5 rounded-xl bg-[#FDF2F8]/60 border border-pink-50/50 hover:bg-[#FDF2F8] hover:border-pink-300/60 transition-all duration-300 hover:shadow-md aspect-square"
+              className="group flex flex-col items-center justify-center text-center p-5 rounded-xl bg-[#fef3ec]/60 border border-brand-50/50 hover:bg-[#fef3ec] hover:border-brand-300/60 transition-all duration-300 hover:shadow-md aspect-square"
             >
-              <div className="p-3 bg-white rounded-full text-pink-500 shadow-sm border border-pink-100/40 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <div className="p-3 bg-white rounded-full text-brand-500 shadow-sm border border-brand-100/40 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                 <IconComponent className="h-7 w-7 stroke-[1.75]" />
               </div>
-              <span className="mt-4 text-xs sm:text-sm font-black text-slate-800 tracking-tight group-hover:text-pink-600 transition-colors duration-200 line-clamp-1">
+              <span className="mt-4 text-xs sm:text-sm font-black text-slate-800 tracking-tight group-hover:text-brand-600 transition-colors duration-200 line-clamp-1">
                 {item.label}
               </span>
             </Link>

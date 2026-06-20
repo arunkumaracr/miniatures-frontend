@@ -156,7 +156,7 @@ export default function HelpPage() {
 
       <main className="flex-1 pb-24">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-pink-500 to-purple-600 text-white py-14 px-4 text-center">
+        <div className="bg-gradient-to-br from-[#e8884f] to-[#d4703a] text-white py-14 px-4 text-center">
           <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/15 mb-4">
             <MessageCircle className="h-7 w-7 text-white" />
           </div>
@@ -192,7 +192,7 @@ export default function HelpPage() {
                   <p className="text-sm text-slate-400 font-medium">No FAQs matched your search.</p>
                   <p className="text-sm text-slate-400 font-medium mt-1">
                     Try a different keyword or{" "}
-                    <button onClick={() => setSearchQuery("")} className="text-pink-500 font-bold hover:underline">
+                    <button onClick={() => setSearchQuery("")} className="text-brand-500 font-bold hover:underline">
                       browse all topics
                     </button>
                     .
@@ -215,8 +215,8 @@ export default function HelpPage() {
                       className={cn(
                         "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all border",
                         activeTab === idx
-                          ? "bg-pink-500 text-white border-pink-500 shadow-sm shadow-pink-200"
-                          : "bg-white text-slate-600 border-slate-200 hover:border-pink-200 hover:text-pink-500"
+                          ? "bg-brand-500 text-white border-brand-500 shadow-sm shadow-brand-200"
+                          : "bg-white text-slate-600 border-slate-200 hover:border-brand-200 hover:text-brand-500"
                       )}
                     >
                       <Icon className="h-4 w-4" />
@@ -242,8 +242,8 @@ export default function HelpPage() {
           {/* Contact cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex flex-col items-center text-center gap-3">
-              <div className="h-11 w-11 rounded-full bg-pink-50 flex items-center justify-center">
-                <Mail className="h-5 w-5 text-pink-500" />
+              <div className="h-11 w-11 rounded-full bg-brand-50 flex items-center justify-center">
+                <Mail className="h-5 w-5 text-brand-500" />
               </div>
               <div>
                 <p className="text-sm font-black text-slate-800">Email Us</p>
@@ -251,7 +251,7 @@ export default function HelpPage() {
               </div>
               <a
                 href="mailto:support@miniaturetoys.in"
-                className="text-xs font-black text-pink-500 hover:text-pink-600 transition-colors"
+                className="text-xs font-black text-brand-500 hover:text-brand-600 transition-colors"
               >
                 support@miniaturetoys.in
               </a>
@@ -291,7 +291,7 @@ export default function HelpPage() {
 
           <p className="mt-8 text-center text-sm text-slate-400 font-medium">
             Still need help?{" "}
-            <Link href="/track" className="font-black text-pink-500 hover:text-pink-600 transition-colors">
+            <Link href="/track" className="font-black text-brand-500 hover:text-brand-600 transition-colors">
               Track your order →
             </Link>
           </p>

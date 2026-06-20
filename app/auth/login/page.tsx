@@ -82,7 +82,7 @@ function LoginForm() {
               type="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+              className="mt-1.5 w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
               placeholder="you@example.com"
               autoComplete="email"
             />
@@ -97,7 +97,7 @@ function LoginForm() {
                 type={showPassword ? "text" : "password"}
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
-                className="w-full border border-slate-200 rounded-lg px-3 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+                className="w-full border border-slate-200 rounded-lg px-3 py-2.5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white"
                 placeholder="••••••••"
                 autoComplete="current-password"
               />
@@ -114,7 +114,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-12 bg-pink-500 hover:bg-pink-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all shadow-sm shadow-pink-200 disabled:shadow-none flex items-center justify-center gap-2"
+            className="w-full h-12 bg-brand-500 hover:bg-brand-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-xl transition-all shadow-sm shadow-brand-200 disabled:shadow-none flex items-center justify-center gap-2"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             {loading ? "Signing in..." : "Sign In"}
@@ -123,7 +123,7 @@ function LoginForm() {
 
         <p className="text-center text-sm text-slate-500 font-medium">
           Don&apos;t have an account?{" "}
-          <Link href="/auth/register" className="font-black text-pink-500 hover:text-pink-600 transition-colors">
+          <Link href="/auth/register" className="font-black text-brand-500 hover:text-brand-600 transition-colors">
             Create one
           </Link>
         </p>

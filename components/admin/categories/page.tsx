@@ -99,7 +99,7 @@ export default function CategoriesPage() {
         </div>
         <button
           onClick={openAdd}
-          className="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors"
+          className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors"
         >
           <Plus size={16} /> Add Category
         </button>
@@ -116,8 +116,8 @@ export default function CategoriesPage() {
             return (
               <div key={category.id} className="bg-white rounded-xl border border-slate-200 p-5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="h-10 w-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center flex-shrink-0">
-                    <IconComp className="h-5 w-5 text-pink-500" />
+                  <div className="h-10 w-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center flex-shrink-0">
+                    <IconComp className="h-5 w-5 text-brand-500" />
                   </div>
                   <div className="min-w-0">
                     <p className="font-black text-slate-800 truncate">{category.label}</p>
@@ -165,7 +165,7 @@ export default function CategoriesPage() {
                   value={form.id}
                   onChange={(e) => setForm({ ...form, id: e.target.value })}
                   disabled={!!editingId}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 disabled:bg-slate-50 disabled:text-slate-400"
+                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:bg-slate-50 disabled:text-slate-400"
                   placeholder="e.g. outdoor"
                 />
               </div>
@@ -174,7 +174,7 @@ export default function CategoriesPage() {
                 <input
                   value={form.slug}
                   onChange={(e) => setForm({ ...form, slug: e.target.value })}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   placeholder="e.g. outdoor-toys"
                 />
               </div>
@@ -183,7 +183,7 @@ export default function CategoriesPage() {
                 <input
                   value={form.label}
                   onChange={(e) => setForm({ ...form, label: e.target.value })}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                   placeholder="e.g. Outdoor Toys"
                 />
               </div>
@@ -197,7 +197,7 @@ export default function CategoriesPage() {
                       onClick={() => setForm({ ...form, icon: name })}
                       className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all ${
                         form.icon === name
-                          ? "border-pink-500 bg-pink-50 text-pink-600"
+                          ? "border-brand-500 bg-brand-50 text-brand-600"
                           : "border-slate-200 hover:border-slate-300 text-slate-500"
                       }`}
                       title={name}
@@ -220,7 +220,7 @@ export default function CategoriesPage() {
               <button
                 onClick={handleSubmit}
                 disabled={saving}
-                className="px-4 py-2 text-sm font-bold bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition-colors disabled:opacity-50"
+                className="px-4 py-2 text-sm font-bold bg-brand-500 hover:bg-brand-600 text-white rounded-lg transition-colors disabled:opacity-50"
               >
                 {saving ? "Saving..." : editingId ? "Update Category" : "Add Category"}
               </button>

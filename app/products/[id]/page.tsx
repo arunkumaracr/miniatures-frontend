@@ -85,7 +85,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
         <Navbar />
         <div className="flex-1 flex flex-col items-center justify-center gap-4">
           <p className="text-2xl font-black text-slate-700">Product not found</p>
-          <Link href="/" className="text-sm font-bold text-pink-500 hover:underline">
+          <Link href="/" className="text-sm font-bold text-brand-500 hover:underline">
             ← Back to Home
           </Link>
         </div>
@@ -112,9 +112,9 @@ export default function ProductDetailsPage({ params }: PageProps) {
         {/* Breadcrumb */}
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 tracking-wide uppercase">
-            <Link href="/" className="hover:text-pink-500 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-brand-500 transition-colors">Home</Link>
             <ChevronRight className="h-3 w-3 text-slate-400 stroke-[2.5]" />
-            <Link href="/" className="hover:text-pink-500 transition-colors">Shop</Link>
+            <Link href="/" className="hover:text-brand-500 transition-colors">Shop</Link>
             <ChevronRight className="h-3 w-3 text-slate-400 stroke-[2.5]" />
             <span className="text-slate-800 font-black truncate max-w-[200px]">Product Details</span>
           </div>
@@ -125,7 +125,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-start">
 
             {/* Left: Image */}
-            <div className="md:col-span-6 w-full relative aspect-square bg-[#FDF2F8]/40 border border-slate-100 rounded-2xl overflow-hidden p-6 flex items-center justify-center group">
+            <div className="md:col-span-6 w-full relative aspect-square bg-[#fef3ec]/40 border border-slate-100 rounded-2xl overflow-hidden p-6 flex items-center justify-center group">
               <Image
                 src={product.imageUrl}
                 alt={product.title}
@@ -183,7 +183,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
                     ₹{product.originalPrice.toFixed(2)}
                   </span>
                 )}
-                <span className="text-2xl sm:text-3xl font-black text-pink-600">
+                <span className="text-2xl sm:text-3xl font-black text-brand-600">
                   ₹{product.discountPrice.toFixed(2)}
                 </span>
               </div>
@@ -195,9 +195,9 @@ export default function ProductDetailsPage({ params }: PageProps) {
               </p>
 
               {/* Availability */}
-              <div className="w-fit bg-[#FDF2F8] text-pink-700 rounded-md px-4 py-2.5 text-xs font-extrabold border border-pink-100/30 flex items-center gap-1.5 shadow-sm">
+              <div className="w-fit bg-[#fef3ec] text-brand-700 rounded-md px-4 py-2.5 text-xs font-extrabold border border-brand-100/30 flex items-center gap-1.5 shadow-sm">
                 Availability:{" "}
-                <span className="text-purple-700 uppercase tracking-wide">
+                <span className="text-[#9a3412] uppercase tracking-wide">
                   {product.isAvailable ? "✔ Available In Stock" : "❌ Out Of Stock"}
                 </span>
               </div>
@@ -215,7 +215,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
                 <label className="text-xs font-black text-slate-500 uppercase tracking-wider block">
                   Variants / Size
                 </label>
-                <select className="w-full border border-slate-200 rounded-lg p-3 text-xs font-bold text-slate-700 bg-white focus:outline-none focus:border-pink-400 cursor-pointer shadow-sm">
+                <select className="w-full border border-slate-200 rounded-lg p-3 text-xs font-bold text-slate-700 bg-white focus:outline-none focus:border-brand-400 cursor-pointer shadow-sm">
                   <option>Standard Pack Edition</option>
                   <option>Deluxe Collector Set</option>
                   <option>Premium Gift Box</option>
@@ -248,8 +248,8 @@ export default function ProductDetailsPage({ params }: PageProps) {
                   onClick={() => setIsWishlisted(!isWishlisted)}
                   className={`h-12 w-12 border rounded-lg flex items-center justify-center transition-all shadow-sm ${
                     isWishlisted
-                      ? "bg-pink-50 border-pink-200 text-pink-500"
-                      : "border-slate-200 bg-white text-slate-600 hover:text-pink-500"
+                      ? "bg-brand-50 border-brand-200 text-brand-500"
+                      : "border-slate-200 bg-white text-slate-600 hover:text-brand-500"
                   }`}
                 >
                   <Heart className={`h-4 w-4 ${isWishlisted ? "fill-current" : ""}`} />
@@ -259,7 +259,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
                 <button
                   disabled={!product.isAvailable}
                   onClick={handleAddToCartWithQty}
-                  className="flex-1 md:flex-none h-12 min-w-[200px] flex items-center justify-center gap-2 rounded-full bg-[#A21CAF] hover:bg-pink-600 text-white font-black text-xs uppercase tracking-wider px-8 transition-all duration-150 shadow-md disabled:bg-slate-200 disabled:text-slate-400 active:scale-[0.98]"
+                  className="flex-1 md:flex-none h-12 min-w-[200px] flex items-center justify-center gap-2 rounded-full bg-[#e8884f] hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider px-8 transition-all duration-150 shadow-md disabled:bg-slate-200 disabled:text-slate-400 active:scale-[0.98]"
                 >
                   <Plus className="h-4 w-4 stroke-[3]" /> Add to Cart
                 </button>
@@ -269,7 +269,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
               <div className="border-t border-slate-100 pt-5 space-y-2 text-xs font-bold text-slate-400">
                 <div>
                   Category:{" "}
-                  <span className="text-pink-600 ml-1 capitalize">{product.categoryId} Marketplace</span>
+                  <span className="text-brand-600 ml-1 capitalize">{product.categoryId} Marketplace</span>
                 </div>
                 <div>
                   Tags:{" "}

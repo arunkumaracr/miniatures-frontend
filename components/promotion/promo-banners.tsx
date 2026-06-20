@@ -37,15 +37,15 @@ export function PromoBanners() {
         </div>
 
         {/* Banner 2: Right Pink Pastel Block */}
-        <div className="relative rounded-md overflow-hidden bg-[#FBCFE8]/40 min-h-[260px] sm:min-h-[290px] p-6 sm:p-8 flex items-center group border border-pink-100">
+        <div className="relative rounded-md overflow-hidden bg-[#FBCFE8]/40 min-h-[260px] sm:min-h-[290px] p-6 sm:p-8 flex items-center group border border-brand-100">
           <div className="w-1/2 z-10 space-y-3 sm:space-y-4 text-left">
-            <span className="text-[11px] font-black uppercase tracking-widest text-pink-600">
+            <span className="text-[11px] font-black uppercase tracking-widest text-brand-600">
               MEGA OFFER
             </span>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
               Build Imaginations <br />with Our Soft <br />Plushies.
             </h3>
-            <button className="flex items-center gap-1.5 rounded-full bg-[#A21CAF] hover:bg-[#86198F] text-white font-extrabold text-xs px-5 py-3 transition-all duration-200 shadow-sm active:scale-95">
+            <button className="flex items-center gap-1.5 rounded-full bg-[#e8884f] hover:bg-[#d4703a] text-white font-extrabold text-xs px-5 py-3 transition-all duration-200 shadow-sm active:scale-95">
               Shop Now <ChevronRight className="h-4 w-4 stroke-[3]" />
             </button>
           </div>
