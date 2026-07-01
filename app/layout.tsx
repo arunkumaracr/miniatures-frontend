@@ -14,6 +14,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Miniature Toys",
   description: "Premium educational toys for kids",
+  icons: {
+    icon: "/mt_logo_new.png",
+    shortcut: "/mt_logo_new.png",
+    apple: "/mt_logo_new.png",
+  },
 };
 
 export default function RootLayout({
