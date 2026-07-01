@@ -3,21 +3,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
 import { ToyProduct } from "../../types/store";
 import { useCart } from "../../lib/cart-context";
 import { useWishlist } from "../../lib/wishlist-context";
-import { Star, Maximize2, Heart, RefreshCw } from "lucide-react";
+import { Star, Maximize2, Heart, RefreshCw, Check } from "lucide-react";
 
 export function ProductCard({ product }: { product: ToyProduct }) {
+  const router = useRouter();
   const { addToCart } = useCart();
   const { toggleWishlist, isWishlisted } = useWishlist();
   const wishlisted = isWishlisted(product.id);
+  const [quickAdded, setQuickAdded] = useState(false);
 
-  const handleAddToCart = () => {
+  const handleQuickAdd = (e: React.MouseEvent) => {
+    e.preventDefault();
     addToCart(product);
+    setQuickAdded(true);
+    setTimeout(() => setQuickAdded(false), 1200);
   };
 
   return (
@@ -35,17 +40,29 @@ export function ProductCard({ product }: { product: ToyProduct }) {
 
         {/* 🎯 HOVER ACCENTS PANEL */}
         <div className="absolute inset-0 bg-brand-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 z-10">
-          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-brand-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
+          {/* Expand → product detail page */}
+          <button
+            onClick={() => router.push(`/products/${product.id}`)}
+            className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-brand-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300"
+            title="View product"
+          >
             <Maximize2 className="h-4 w-4" />
           </button>
+          {/* Heart → wishlist */}
           <button
             onClick={(e) => { e.preventDefault(); toggleWishlist(product); }}
             className="h-9 w-9 bg-white rounded-full flex items-center justify-center hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[40ms]"
+            title="Add to wishlist"
           >
             <Heart className={`h-4 w-4 transition-colors ${wishlisted ? "fill-brand-500 text-brand-500" : "text-slate-700 hover:text-brand-500"}`} />
           </button>
-          <button className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-brand-500 hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[80ms]">
-            <RefreshCw className="h-4 w-4" />
+          {/* Quick-add → add to cart with tick feedback */}
+          <button
+            onClick={handleQuickAdd}
+            className={`h-9 w-9 bg-white rounded-full flex items-center justify-center hover:scale-110 shadow transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 delay-[80ms] ${quickAdded ? "text-green-500" : "text-slate-700 hover:text-brand-500"}`}
+            title="Quick add to cart"
+          >
+            {quickAdded ? <Check className="h-4 w-4" /> : <RefreshCw className="h-4 w-4" />}
           </button>
         </div>
       </div>

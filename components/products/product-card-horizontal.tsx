@@ -69,11 +69,11 @@ export function ProductCardHorizontal({ product }: { product: ToyProduct }) {
           <div className="flex items-center gap-2 pt-1">
             {product.originalPrice > product.discountPrice && (
               <span className="text-sm text-slate-400 line-through font-bold">
-                ${product.originalPrice.toFixed(2)}
+                ₹{product.originalPrice.toFixed(2)}
               </span>
             )}
             <span className="text-base font-black text-brand-600">
-              ${product.discountPrice.toFixed(2)}
+              ₹{product.discountPrice.toFixed(2)}
             </span>
           </div>
 

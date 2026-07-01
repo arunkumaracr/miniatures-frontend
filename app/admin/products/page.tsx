@@ -124,16 +124,16 @@ export default function ProductsPage() {
     return (
         <div>
             {/* Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-5">
                 <div>
-                    <h1 className="text-2xl font-black text-slate-900">Products</h1>
-                    <p className="text-sm text-slate-500">{products.length} total · {products.filter(p => p.isTopSelling).length} top selling</p>
+                    <h1 className="text-xl md:text-2xl font-black text-slate-900">Products</h1>
+                    <p className="text-xs md:text-sm text-slate-500">{products.length} total · {products.filter(p => p.isTopSelling).length} top selling</p>
                 </div>
                 <button
                     onClick={openAdd}
-                    className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold px-4 py-2.5 rounded-lg transition-colors shadow-sm shadow-brand-200"
+                    className="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-xs md:text-sm font-bold px-3 md:px-4 py-2 md:py-2.5 rounded-lg transition-colors shadow-sm shadow-brand-200"
                 >
-                    <Plus size={16} /> Add Product
+                    <Plus size={15} /> Add Product
                 </button>
             </div>
 
@@ -160,106 +160,161 @@ export default function ProductsPage() {
                 ))}
             </div>
 
-            {/* Table */}
+            {/* Products list */}
             {loading ? (
                 <p className="text-sm text-slate-400">Loading products...</p>
+            ) : filtered.length === 0 ? (
+                <div className="bg-white rounded-xl border border-slate-200 px-4 py-12 text-center text-sm text-slate-400">
+                    No products found in this filter.
+                </div>
             ) : (
-                <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                    <table className="w-full text-sm">
-                        <thead className="bg-slate-50 border-b border-slate-200">
-                            <tr>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Product</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Category</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Age</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Price</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Rating</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Badge</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Status</th>
-                                <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-slate-100">
-                            {filtered.map((product) => (
-                                <tr key={product.id} className="hover:bg-slate-50/60 transition-colors">
-                                    <td className="px-4 py-3">
-                                        <div className="flex items-center gap-3">
-                                            <img
-                                                src={product.imageUrl}
-                                                alt={product.title}
-                                                className="w-12 h-12 rounded-lg object-cover bg-slate-100 flex-shrink-0"
-                                            />
-                                            <span className="font-semibold text-slate-800 line-clamp-2 max-w-[180px] text-xs leading-snug">
-                                                {product.title}
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="px-4 py-3 text-xs text-slate-500 capitalize">{product.categoryId}</td>
-                                    <td className="px-4 py-3 text-xs text-slate-500">{product.ageRange}</td>
-                                    <td className="px-4 py-3">
-                                        <span className="font-black text-slate-800 text-sm">${product.discountPrice}</span>
+                <>
+                    {/* Mobile cards — hidden on desktop */}
+                    <div className="md:hidden space-y-3">
+                        {filtered.map((product) => (
+                            <div key={product.id} className="bg-white rounded-xl border border-slate-200 p-3 flex gap-3">
+                                <img
+                                    src={product.imageUrl}
+                                    alt={product.title}
+                                    className="w-16 h-16 rounded-lg object-cover bg-slate-100 flex-shrink-0"
+                                />
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-sm font-bold text-slate-800 line-clamp-2 leading-snug">{product.title}</p>
+                                    <p className="text-xs text-slate-500 mt-0.5 capitalize">{product.categoryId}</p>
+                                    <div className="flex items-center gap-2 mt-1.5">
+                                        <span className="text-sm font-black text-slate-800">₹{product.discountPrice}</span>
                                         {product.originalPrice !== product.discountPrice && (
-                                            <span className="text-slate-400 line-through ml-1 text-xs">${product.originalPrice}</span>
+                                            <span className="text-xs text-slate-400 line-through">₹{product.originalPrice}</span>
                                         )}
-                                    </td>
-                                    <td className="px-4 py-3">
-                                        <div className="flex items-center gap-1">
-                                            <Star size={12} className="text-yellow-400 fill-yellow-400" />
-                                            <span className="text-xs font-bold text-slate-700">{product.rating}</span>
-                                            <span className="text-xs text-slate-400">({product.reviewCount})</span>
+                                        <div className="flex items-center gap-0.5 ml-1">
+                                            <Star size={11} className="text-yellow-400 fill-yellow-400" />
+                                            <span className="text-xs font-bold text-slate-600">{product.rating}</span>
                                         </div>
-                                    </td>
-                                    <td className="px-4 py-3">
-                                        {product.badge && (
-                                            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100">
-                                                {product.badge}
-                                            </span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
+                                        <span className={cn("text-xs font-bold px-2 py-0.5 rounded-full",
+                                            product.isAvailable ? "bg-green-50 text-green-600" : "bg-red-50 text-red-500"
+                                        )}>
+                                            {product.isAvailable ? "Available" : "Unavailable"}
+                                        </span>
+                                        {product.isTopSelling && (
+                                            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-brand-50 text-brand-500">🔥 Top</span>
                                         )}
-                                    </td>
-                                    <td className="px-4 py-3">
-                                        <div className="flex flex-col gap-1">
-                                            <span className={cn("text-xs font-bold px-2 py-0.5 rounded-full w-fit",
-                                                product.isAvailable ? "bg-green-50 text-green-600" : "bg-red-50 text-red-500"
-                                            )}>
-                                                {product.isAvailable ? "Available" : "Unavailable"}
-                                            </span>
-                                            {product.isTopSelling && (
-                                                <span className="text-xs font-bold px-2 py-0.5 rounded-full w-fit bg-brand-50 text-brand-500">
-                                                    🔥 Top Selling
+                                        {product.badge && (
+                                            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600">{product.badge}</span>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-1 shrink-0">
+                                    <button
+                                        onClick={() => openEdit(product)}
+                                        className="p-2 rounded-lg hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors"
+                                    >
+                                        <Pencil size={15} />
+                                    </button>
+                                    <button
+                                        onClick={() => handleDelete(product.id)}
+                                        disabled={deletingId === product.id}
+                                        className="p-2 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors disabled:opacity-40"
+                                    >
+                                        <Trash2 size={15} />
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Desktop table — hidden on mobile */}
+                    <div className="hidden md:block bg-white rounded-xl border border-slate-200 overflow-hidden">
+                        <table className="w-full text-sm">
+                            <thead className="bg-slate-50 border-b border-slate-200">
+                                <tr>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Product</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Category</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Age</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Price</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Rating</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Badge</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Status</th>
+                                    <th className="text-left px-4 py-3 text-xs font-black text-slate-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100">
+                                {filtered.map((product) => (
+                                    <tr key={product.id} className="hover:bg-slate-50/60 transition-colors">
+                                        <td className="px-4 py-3">
+                                            <div className="flex items-center gap-3">
+                                                <img
+                                                    src={product.imageUrl}
+                                                    alt={product.title}
+                                                    className="w-12 h-12 rounded-lg object-cover bg-slate-100 flex-shrink-0"
+                                                />
+                                                <span className="font-semibold text-slate-800 line-clamp-2 max-w-[180px] text-xs leading-snug">
+                                                    {product.title}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td className="px-4 py-3 text-xs text-slate-500 capitalize">{product.categoryId}</td>
+                                        <td className="px-4 py-3 text-xs text-slate-500">{product.ageRange}</td>
+                                        <td className="px-4 py-3">
+                                            <span className="font-black text-slate-800 text-sm">₹{product.discountPrice}</span>
+                                            {product.originalPrice !== product.discountPrice && (
+                                                <span className="text-slate-400 line-through ml-1 text-xs">₹{product.originalPrice}</span>
+                                            )}
+                                        </td>
+                                        <td className="px-4 py-3">
+                                            <div className="flex items-center gap-1">
+                                                <Star size={12} className="text-yellow-400 fill-yellow-400" />
+                                                <span className="text-xs font-bold text-slate-700">{product.rating}</span>
+                                                <span className="text-xs text-slate-400">({product.reviewCount})</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-4 py-3">
+                                            {product.badge && (
+                                                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100">
+                                                    {product.badge}
                                                 </span>
                                             )}
-                                        </div>
-                                    </td>
-                                    <td className="px-4 py-3">
-                                        <div className="flex items-center gap-1">
-                                            <button
-                                                onClick={() => openEdit(product)}
-                                                className="p-1.5 rounded-lg hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors"
-                                                title="Edit"
-                                            >
-                                                <Pencil size={14} />
-                                            </button>
-                                            <button
-                                                onClick={() => handleDelete(product.id)}
-                                                disabled={deletingId === product.id}
-                                                className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors disabled:opacity-40"
-                                                title="Delete"
-                                            >
-                                                <Trash2 size={14} />
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                            {filtered.length === 0 && (
-                                <tr>
-                                    <td colSpan={8} className="px-4 py-12 text-center text-sm text-slate-400">
-                                        No products found in this filter.
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
-                </div>
+                                        </td>
+                                        <td className="px-4 py-3">
+                                            <div className="flex flex-col gap-1">
+                                                <span className={cn("text-xs font-bold px-2 py-0.5 rounded-full w-fit",
+                                                    product.isAvailable ? "bg-green-50 text-green-600" : "bg-red-50 text-red-500"
+                                                )}>
+                                                    {product.isAvailable ? "Available" : "Unavailable"}
+                                                </span>
+                                                {product.isTopSelling && (
+                                                    <span className="text-xs font-bold px-2 py-0.5 rounded-full w-fit bg-brand-50 text-brand-500">
+                                                        🔥 Top Selling
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </td>
+                                        <td className="px-4 py-3">
+                                            <div className="flex items-center gap-1">
+                                                <button
+                                                    onClick={() => openEdit(product)}
+                                                    className="p-1.5 rounded-lg hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors"
+                                                    title="Edit"
+                                                >
+                                                    <Pencil size={14} />
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDelete(product.id)}
+                                                    disabled={deletingId === product.id}
+                                                    className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors disabled:opacity-40"
+                                                    title="Delete"
+                                                >
+                                                    <Trash2 size={14} />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </>
             )}
 
             {/* Modal Form */}

@@ -14,7 +14,7 @@ const SECTIONS = [
   },
   {
     title: "3. Orders & Payment",
-    body: `By placing an order, you confirm that the information provided is accurate and complete. We accept UPI, Credit/Debit Cards, Net Banking, and Cash on Delivery (COD). Orders are confirmed only after successful payment (or COD confirmation). We reserve the right to cancel orders at our discretion, in which case a full refund will be issued.`,
+    body: `By placing an order, you confirm that the information provided is accurate and complete. We accept UPI, Credit/Debit Cards, Net Banking. Orders are confirmed only after successful payment. We reserve the right to cancel orders at our discretion, in which case a full refund will be issued.`,
   },
   {
     title: "4. Shipping & Delivery",
@@ -22,7 +22,7 @@ const SECTIONS = [
   },
   {
     title: "5. Returns & Refunds",
-    body: `Items may be returned within 30 days of delivery, provided they are unused, in original packaging, and with all tags intact. To initiate a return, email support@miniaturetoys.in with your order ID and reason. Refunds are processed within 5–7 business days after we receive and inspect the returned item. Items damaged due to misuse are not eligible for return.`,
+    body: `We offer a 7-day return policy from the date of delivery. To be eligible, items must be unused, unassembled, and in their original packaging with all parts intact. Returns are accepted under the following conditions:\n\n• The item received is damaged, broken, or defective on arrival.\n• The wrong product was delivered.\n• The item is significantly different from what was described.\n\nReturns are NOT accepted if:\n• The item has been used, assembled, or repainted.\n• The packaging has been destroyed or discarded.\n• The return request is raised after 7 days of delivery.\n• Damage was caused by the buyer after delivery.\n\nTo initiate a return, email us at support@miniaturetoys.in within 7 days of delivery with your Order ID, a brief reason, and clear photos of the item and packaging. Once we receive and inspect the returned item, refunds are processed within 5–7 business days to the original payment method. For COD orders, refunds are issued via bank transfer or UPI.`,
   },
   {
     title: "6. Intellectual Property",
@@ -46,7 +46,7 @@ const SECTIONS = [
   },
   {
     title: "11. Contact",
-    body: `If you have questions about these Terms & Conditions, please contact us at support@miniaturetoys.in or call +91 80 1234 5678 (Mon–Sat, 10 AM – 6 PM).`,
+    body: `If you have questions about these Terms & Conditions, please contact us at support@miniaturetoys.in or call +91 9159947106 (Mon–Sat, 10 AM – 6 PM).`,
   },
 ];
 
@@ -73,7 +73,7 @@ export default function TermsPage() {
           {SECTIONS.map(({ title, body }) => (
             <div key={title} className="space-y-2">
               <h2 className="text-base font-black text-slate-900">{title}</h2>
-              <p className="text-sm text-slate-500 font-medium leading-relaxed">{body}</p>
+              <p className="text-sm text-slate-500 font-medium leading-relaxed whitespace-pre-line">{body}</p>
             </div>
           ))}
 

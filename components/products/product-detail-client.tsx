@@ -98,20 +98,20 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
             <div className="flex items-baseline gap-3">
               {product.originalPrice > product.discountPrice && (
                 <span className="text-lg text-slate-400 line-through font-bold">
-                  ${product.originalPrice.toFixed(2)}
+                  ₹{product.originalPrice.toFixed(2)}
                 </span>
               )}
               <span className="text-3xl font-black text-brand-600">
-                ${product.discountPrice.toFixed(2)}
+                ₹{product.discountPrice.toFixed(2)}
               </span>
             </div>
 
             {/* Description */}
-            <p className="text-sm text-slate-500 leading-relaxed">
+            {/* <p className="text-sm text-slate-500 leading-relaxed">
               Encourage developmental growth, critical reasoning, and hours of
               immersive adventure with this authentic product collection — built
               for creative play and lasting fun.
-            </p>
+            </p> */}
 
             {/* Availability */}
             <div className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider px-4 py-2.5 rounded-lg w-fit border ${
@@ -126,11 +126,27 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
             </div>
 
             {/* Age Range */}
-            {product.ageRange && (
+            {/* {product.ageRange && (
               <div className="text-xs font-bold text-slate-500">
                 Suitable Age: <span className="text-slate-800">{product.ageRange}</span>
               </div>
-            )}
+            )} */}
+
+            {/* ── Variants / Size ── will add in future ──────────────────────
+            <div className="space-y-2">
+              <p className="text-xs font-black uppercase tracking-widest text-slate-600">Size / Variant</p>
+              <div className="flex flex-wrap gap-2">
+                {product.variants?.map((v) => (
+                  <button
+                    key={v}
+                    className="px-4 py-2 text-xs font-bold border border-slate-200 rounded-lg hover:border-brand-400 hover:text-brand-600 transition-colors"
+                  >
+                    {v}
+                  </button>
+                ))}
+              </div>
+            </div>
+            ──────────────────────────────────────────────────────────────── */}
 
             {/* Quantity + Add to Cart */}
             <div className="flex items-center gap-3 pt-1">
@@ -200,7 +216,7 @@ export function ProductDetailClient({ product }: { product: ToyProduct }) {
       <div className="mt-6 bg-[#e8884f] rounded-2xl px-8 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: Truck, title: "Free Shipping", sub: "When ordering over $100" },
+            { icon: Truck, title: "Free Shipping", sub: "When ordering over ₹999" },
             { icon: RotateCcw, title: "Free Return", sub: "Get Return within 30 days" },
             { icon: ShieldCheck, title: "Secure Payment", sub: "100% Secure Online Payment" },
             { icon: Star, title: "Best Quality", sub: "Original Product Guaranteed" },

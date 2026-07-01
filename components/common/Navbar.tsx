@@ -114,7 +114,10 @@ export function Navbar() {
     <header className="w-full border-b border-muted bg-white sticky top-0 z-50 shadow-sm">
       {/* Top Banner */}
       <div className="w-full bg-slate-900 text-white text-xs py-2 px-4 md:px-8 flex justify-between items-center font-medium">
-        <div>✨ Welcome to Miniature Toys Marketplace! Free global shipping over $50</div>
+        <div>
+          <span className="hidden sm:inline">✨ Welcome to Miniature Toys Marketplace! &nbsp;|&nbsp; </span>
+          <span>🚚 Free Shipping across India on orders above ₹1999</span>
+        </div>
         <div className="flex gap-4 opacity-80">
           <Link href="/track" className="hover:underline">Track Order</Link>
           <Link href="/help" className="hover:underline">Help Support</Link>
@@ -408,17 +411,17 @@ export function Navbar() {
       {/* Sub-Category Bar */}
       {categories.length > 0 && (
         <div className="border-t border-muted bg-slate-50/80 hidden md:block">
-          <div className="max-w-7xl mx-auto px-8 h-11 flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-600">
+          <div className="max-w-7xl mx-auto px-8 h-11 flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-600 overflow-x-auto scrollbar-none">
             {categories.map((cat) => (
               <Link
                 key={cat.id}
                 href={`/categories/${cat.id}`}
-                className="hover:text-brand-500 transition-colors"
+                className="whitespace-nowrap flex-shrink-0 hover:text-brand-500 transition-colors"
               >
                 {cat.label}
               </Link>
             ))}
-            <span className="ml-auto text-brand-600 font-extrabold animate-pulse">🔥 Flash Sale: 70% Off!</span>
+            {/* <span className="ml-auto whitespace-nowrap flex-shrink-0 text-brand-600 font-extrabold animate-pulse">🔥 Flash Sale: 70% Off!</span> */}
           </div>
         </div>
       )}

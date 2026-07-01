@@ -2,7 +2,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { ProductCard } from "@/components/products/product-card";
+
+const VISIBLE_COUNT = 12; // 3 rows × 4 columns
 
 // Next.js automatically injects your live Railway domain here on Vercel
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -100,12 +103,28 @@ export function HomeClient() {
           </p>
         </div>
       ) : (
-        // Live data display map
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product: any) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.slice(0, VISIBLE_COUNT).map((product: any) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          {products.length > VISIBLE_COUNT && (
+            <div className="mt-12 flex flex-col items-center gap-3">
+              <p className="text-sm text-slate-400 font-medium">
+                Showing 12 of {products.length} products
+              </p>
+              <Link
+                href={`/categories/${activeTab}`}
+                className="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 active:scale-[0.98] text-white font-black text-sm uppercase tracking-wider px-8 py-3.5 rounded-xl shadow-md shadow-brand-200 transition-all"
+              >
+                Load More
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
+            </div>
+          )}
+        </>
       )}
     </main>
   );

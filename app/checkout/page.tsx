@@ -10,8 +10,17 @@ import { Navbar } from "@/components/common/Navbar";
 import { ChevronLeft, MapPin, CreditCard, Truck, ShieldCheck, Plus, Minus } from "lucide-react";
 import type { PaymentMethod, ShippingAddress } from "@/types/store";
 
-const SHIPPING_THRESHOLD = 50;
-const SHIPPING_COST = 5.99;
+declare global {
+  interface Window {
+    Razorpay: new (options: Record<string, unknown>) => {
+      open(): void;
+      on(event: string, handler: () => void): void;
+    };
+  }
+}
+
+const SHIPPING_THRESHOLD = 1999;
+const SHIPPING_COST = 49;
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 interface CheckoutForm extends ShippingAddress {
@@ -55,6 +64,7 @@ export default function CheckoutPage() {
   const orderPlaced = useRef(false);
   const [placing, setPlacing] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [rzpReady, setRzpReady] = useState(false);
 
   const [form, setForm] = useState<CheckoutForm>({
     email: "",
@@ -67,8 +77,23 @@ export default function CheckoutPage() {
     state: "",
     postalCode: "",
     country: "India",
-    paymentMethod: "cod",
+    paymentMethod: "razorpay",
   });
+
+  // Load Razorpay checkout script once, track when ready
+  useEffect(() => {
+    if (document.getElementById("razorpay-script")) {
+      if (window.Razorpay) setRzpReady(true);
+      return;
+    }
+    const script = document.createElement("script");
+    script.id = "razorpay-script";
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    script.onload = () => setRzpReady(true);
+    script.onerror = () => console.error("Razorpay script failed to load");
+    document.body.appendChild(script);
+  }, []);
 
   // Redirect to login if not authenticated
   useEffect(() => {
@@ -117,10 +142,7 @@ export default function CheckoutPage() {
     return Object.keys(e).length === 0;
   }
 
-  async function handlePlaceOrder() {
-    if (!validate()) return;
-    setPlacing(true);
-
+  async function placeOrderRecord(paymentId?: string) {
     const payload = {
       customerName: `${form.firstName} ${form.lastName}`.trim(),
       customerEmail: form.email,
@@ -133,13 +155,14 @@ export default function CheckoutPage() {
       ]
         .filter(Boolean)
         .join(", "),
+      paymentId: paymentId || null,
+      paymentMethod: form.paymentMethod,
       items: cart.map((item) => ({
         productId: item.product.id,
         quantity: item.quantity,
         price: item.product.discountPrice,
       })),
     };
-
     try {
       const res = await fetch(`${BASE_URL}/api/orders`, {
         method: "POST",
@@ -150,18 +173,104 @@ export default function CheckoutPage() {
         body: JSON.stringify(payload),
       });
       const data = await res.json();
-      const orderId = data.order?.id || data.id || `MT-${Date.now()}`;
-      orderPlaced.current = true;
-      clearCart();
-      router.push(`/checkout/success?orderId=${orderId}`);
+      return data.order?.id || data.id || `MT-${Date.now()}`;
     } catch {
-      const orderId = `MT-${Date.now()}`;
-      orderPlaced.current = true;
-      clearCart();
-      router.push(`/checkout/success?orderId=${orderId}`);
-    } finally {
-      setPlacing(false);
+      return `MT-${Date.now()}`;
     }
+  }
+
+  async function handlePlaceOrder() {
+    if (!validate()) return;
+
+    if (form.paymentMethod === "razorpay") {
+      if (!rzpReady || !window.Razorpay) {
+        alert("Payment gateway is still loading. Please wait a moment and try again.");
+        return;
+      }
+      setPlacing(true);
+      try {
+        // Step 1: create Razorpay order on backend
+        const orderRes = await fetch(`${BASE_URL}/api/payment/create-order`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: Math.round(total * 100) }),
+        });
+        if (!orderRes.ok) {
+          const err = await orderRes.json().catch(() => ({}));
+          throw new Error(err.error || "Failed to create payment order");
+        }
+        const { order_id, amount: rzpAmount, currency } = await orderRes.json();
+
+        // Step 2: open Razorpay modal
+        const rzpKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ?? "rzp_test_T8I5Cv89GPtU6E";
+        const rzp = new window.Razorpay({
+          key: rzpKey,
+          amount: rzpAmount,
+          currency,
+          order_id,
+          name: "Miniature Toys",
+          description: "Miniature Collectibles Order",
+          image: "/mt_logo_new.png",
+          prefill: {
+            name: `${form.firstName} ${form.lastName}`.trim(),
+            email: form.email,
+            contact: form.phone,
+          },
+          theme: { color: "#e8884f" },
+          method: {
+            upi: true,
+            card: true,
+            netbanking: true,
+            wallet: true,
+            paylater: true,
+          },
+          handler: async (response: {
+            razorpay_payment_id: string;
+            razorpay_order_id: string;
+            razorpay_signature: string;
+          }) => {
+            try {
+              // Step 3: verify signature
+              const verifyRes = await fetch(`${BASE_URL}/api/payment/verify`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(response),
+              });
+              const verified = await verifyRes.json();
+              if (!verified.verified) throw new Error("Payment verification failed");
+
+              // Step 4: save order record
+              const orderId = await placeOrderRecord(response.razorpay_payment_id);
+              orderPlaced.current = true;
+              clearCart();
+              router.push(`/checkout/success?orderId=${orderId}`);
+            } catch {
+              alert("Payment was received but order confirmation failed. Please contact support.");
+              setPlacing(false);
+            }
+          },
+          modal: {
+            ondismiss: () => {
+              setPlacing(false);
+            },
+          },
+        });
+        rzp.open();
+      } catch (err) {
+        console.error("Razorpay init error:", err);
+        alert(`Could not initiate payment: ${(err as Error).message || "Unknown error"}. Check that the backend is running on port 5000.`);
+        setPlacing(false);
+      }
+      return;
+    }
+
+    // COD fallback (currently disabled in UI but kept for safety)
+    setPlacing(true);
+    const orderId = await placeOrderRecord();
+    orderPlaced.current = true;
+    clearCart();
+    router.push(`/checkout/success?orderId=${orderId}`);
+    setPlacing(false);
   }
 
   if (cart.length === 0) return null;
@@ -309,58 +418,48 @@ export default function CheckoutPage() {
                 <CreditCard className="h-4 w-4 text-slate-400 ml-auto" />
               </h2>
               <div className="space-y-3">
-                <label className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer border-brand-400 bg-brand-50/30">
+                {/* Razorpay — UPI / Cards / Netbanking */}
+                <label className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                  form.paymentMethod === "razorpay"
+                    ? "border-brand-400 bg-brand-50/30"
+                    : "border-slate-200 hover:border-slate-300"
+                }`}>
                   <input
                     type="radio"
                     name="payment"
-                    value="cod"
-                    checked={form.paymentMethod === "cod"}
-                    onChange={() => setForm({ ...form, paymentMethod: "cod" })}
+                    value="razorpay"
+                    checked={form.paymentMethod === "razorpay"}
+                    onChange={() => setForm({ ...form, paymentMethod: "razorpay" })}
                     className="accent-brand-500 w-4 h-4"
                   />
                   <div className="flex items-center gap-3 flex-1">
-                    <div className="h-9 w-9 rounded-lg bg-green-50 border border-green-100 flex items-center justify-center text-lg flex-shrink-0">
-                      💵
-                    </div>
-                    <div>
-                      <p className="text-sm font-black text-slate-900">Cash on Delivery</p>
-                      <p className="text-xs text-slate-400 font-medium">Pay when your order arrives</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full border border-green-100 flex-shrink-0">
-                    Available
-                  </span>
-                </label>
-
-                <label className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-not-allowed opacity-50 border-slate-200 bg-slate-50">
-                  <input type="radio" name="payment" value="card" disabled className="w-4 h-4" />
-                  <div className="flex items-center gap-3 flex-1">
-                    <div className="h-9 w-9 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-lg flex-shrink-0">
+                    <div className="h-9 w-9 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-lg flex-shrink-0">
                       💳
                     </div>
                     <div>
-                      <p className="text-sm font-black text-slate-600">Credit / Debit Card</p>
-                      <p className="text-xs text-slate-400 font-medium">Visa, Mastercard, RuPay</p>
+                      <p className="text-sm font-black text-slate-900">Pay Online</p>
+                      <p className="text-xs text-slate-400 font-medium">UPI · Cards · Netbanking · Wallets</p>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full flex-shrink-0">
-                    Coming Soon
+                  <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full border border-green-100 flex-shrink-0">
+                    Secure
                   </span>
                 </label>
 
+                {/* COD — unavailable */}
                 <label className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-not-allowed opacity-50 border-slate-200 bg-slate-50">
-                  <input type="radio" name="payment" value="upi" disabled className="w-4 h-4" />
+                  <input type="radio" name="payment" value="cod" disabled className="w-4 h-4" />
                   <div className="flex items-center gap-3 flex-1">
                     <div className="h-9 w-9 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-lg flex-shrink-0">
-                      📱
+                      💵
                     </div>
                     <div>
-                      <p className="text-sm font-black text-slate-600">UPI Payment</p>
-                      <p className="text-xs text-slate-400 font-medium">Google Pay, PhonePe, Paytm</p>
+                      <p className="text-sm font-black text-slate-600">Cash on Delivery</p>
+                      <p className="text-xs text-slate-400 font-medium">Pay when your order arrives</p>
                     </div>
                   </div>
                   <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full flex-shrink-0">
-                    Coming Soon
+                    Not Available
                   </span>
                 </label>
               </div>
@@ -382,7 +481,11 @@ export default function CheckoutPage() {
               disabled={placing}
               className="w-full h-14 bg-brand-500 hover:bg-brand-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-black text-sm uppercase tracking-wider rounded-2xl transition-all active:scale-[0.99] shadow-md shadow-brand-200 disabled:shadow-none"
             >
-              {placing ? "Placing Order..." : `Place Order · $${total.toFixed(2)}`}
+              {placing
+                ? "Processing..."
+                : form.paymentMethod === "razorpay"
+                ? `Pay ₹${total.toFixed(2)} Securely →`
+                : `Place Order · ₹${total.toFixed(2)}`}
             </button>
           </div>
 
@@ -429,7 +532,7 @@ export default function CheckoutPage() {
                       </div>
                     </div>
                     <span className="text-sm font-black text-slate-900 flex-shrink-0">
-                      ${(item.product.discountPrice * item.quantity).toFixed(2)}
+                      ₹{(item.product.discountPrice * item.quantity).toFixed(2)}
                     </span>
                   </div>
                 ))}
@@ -438,26 +541,26 @@ export default function CheckoutPage() {
               <div className="border-t border-slate-100 pt-4 space-y-2.5">
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-500 font-medium">Subtotal</span>
-                  <span className="font-bold text-slate-800">${subtotal.toFixed(2)}</span>
+                  <span className="font-bold text-slate-800">₹{subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-500 font-medium">Shipping</span>
                   {shippingCost === 0 ? (
                     <span className="font-bold text-green-600">Free</span>
                   ) : (
-                    <span className="font-bold text-slate-800">${shippingCost.toFixed(2)}</span>
+                    <span className="font-bold text-slate-800">₹{shippingCost.toFixed(2)}</span>
                   )}
                 </div>
                 {shippingCost > 0 && (
                   <p className="text-xs text-slate-400 font-medium">
-                    Add ${(SHIPPING_THRESHOLD - subtotal).toFixed(2)} more for free shipping
+                    Add ₹{(SHIPPING_THRESHOLD - subtotal).toFixed(2)} more for free shipping
                   </p>
                 )}
               </div>
 
               <div className="border-t-2 border-slate-900 pt-4 flex justify-between items-baseline">
                 <span className="text-base font-black text-slate-900">Total</span>
-                <span className="text-2xl font-black text-brand-600">${total.toFixed(2)}</span>
+                <span className="text-2xl font-black text-brand-600">₹{total.toFixed(2)}</span>
               </div>
             </div>
           </div>

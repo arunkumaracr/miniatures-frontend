@@ -7,7 +7,7 @@ import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { ProductCard } from "@/components/products/product-card";
 import { ToyProduct } from "@/types/store";
-import { ChevronDown, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, SlidersHorizontal, Check } from "lucide-react";
 import { fetchProducts, fetchCategories } from "@/lib/api";
 
 interface PageProps {
@@ -22,10 +22,20 @@ export default function CategoryDetailPage({ params }: PageProps) {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [allProducts, setAllProducts] = useState<ToyProduct[]>([]);
   const [categoriesList, setCategoriesList] = useState<{ id: string; label: string }[]>([]);
+  const [visibleCount, setVisibleCount] = useState(9);
+  const [loading, setLoading] = useState(true);
+
+  // Reset visible count whenever the category changes
+  useEffect(() => {
+    setVisibleCount(9);
+  }, [resolvedParams.id]);
 
   useEffect(() => {
-    fetchProducts().then((data) => setAllProducts(Array.isArray(data.products) ? data.products : []));
-    fetchCategories().then((data) => setCategoriesList(Array.isArray(data.categories) ? data.categories : []));
+    setLoading(true);
+    Promise.all([
+      fetchProducts().then((data) => setAllProducts(Array.isArray(data.products) ? data.products : [])),
+      fetchCategories().then((data) => setCategoriesList(Array.isArray(data.categories) ? data.categories : [])),
+    ]).finally(() => setLoading(false));
   }, []);
 
   // Handle active sidebar checked changes - route to the new category id view dynamically
@@ -72,16 +82,22 @@ export default function CategoryDetailPage({ params }: PageProps) {
               {/* Category Checkbox Form Elements matching image_3a3d06.jpg layout */}
               <div className="space-y-3.5">
                 {categoriesList.map((cat) => (
-                  <label 
-                    key={cat.id} 
+                  <label
+                    key={cat.id}
                     className="flex items-center gap-3 text-sm font-semibold text-slate-600 hover:text-brand-500 transition-colors cursor-pointer group"
                   >
-                    <input
-                      type="checkbox"
-                      checked={resolvedParams.id === cat.id}
-                      onChange={() => handleCategoryCheckboxChange(cat.id)}
-                      className="h-4 w-4 rounded border-slate-300 text-brand-500 focus:ring-brand-400 cursor-pointer accent-brand-500"
-                    />
+                    <div
+                      onClick={() => handleCategoryCheckboxChange(cat.id)}
+                      className={`h-4 w-4 rounded flex-shrink-0 flex items-center justify-center transition-colors cursor-pointer ${
+                        resolvedParams.id === cat.id
+                          ? "bg-brand-500 border-2 border-brand-500"
+                          : "border-2 border-slate-300 bg-white"
+                      }`}
+                    >
+                      {resolvedParams.id === cat.id && (
+                        <Check className="h-2.5 w-2.5 text-white stroke-[3.5]" />
+                      )}
+                    </div>
                     <span className={resolvedParams.id === cat.id ? "text-brand-600 font-extrabold" : "group-hover:translate-x-0.5 transition-transform"}>
                       {cat.label}
                     </span>
@@ -95,8 +111,8 @@ export default function CategoryDetailPage({ params }: PageProps) {
               
               {/* TOP ACTION BAR: Displays pagination indices and Sorting Select inputs */}
               <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between gap-4">
-                <div className="text-xs sm:text-sm font-bold text-slate-500 tracking-tight">
-                  Showing 1–{processedProducts.length} of {processedProducts.length} results
+                <div className="hidden md:block text-xs sm:text-sm font-bold text-slate-500 tracking-tight">
+                  Showing 1–{Math.min(visibleCount, processedProducts.length)} of {processedProducts.length} results
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -127,16 +143,39 @@ export default function CategoryDetailPage({ params }: PageProps) {
               </div>
 
               {/* Dynamic Product Card Grid Output Layer */}
-              {processedProducts.length === 0 ? (
-                <div className="text-center py-24 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                  <p className="text-slate-400 font-bold text-sm">No items matching this classification index currently.</p>
-                </div>
-              ) : (
+              {loading ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                  {processedProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                  {Array.from({ length: 9 }).map((_, i) => (
+                    <div key={i} className="h-[400px] bg-slate-100 rounded-2xl animate-pulse" />
                   ))}
                 </div>
+              ) : processedProducts.length === 0 ? (
+                <div className="text-center py-24 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                  <p className="text-slate-400 font-bold text-sm">No products found in this category.</p>
+                </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {processedProducts.slice(0, visibleCount).map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+
+                  {visibleCount < processedProducts.length && (
+                    <div className="mt-8 flex flex-col items-center gap-3">
+                      <p className="text-sm text-slate-400 font-medium">
+                        Showing {visibleCount} of {processedProducts.length} products
+                      </p>
+                      <button
+                        onClick={() => setVisibleCount((v) => v + 9)}
+                        className="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 active:scale-[0.98] text-white font-black text-sm uppercase tracking-wider px-8 py-3.5 rounded-xl shadow-md shadow-brand-200 transition-all"
+                      >
+                        Load More
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </button>
+                    </div>
+                  )}
+                </>
               )}
 
             </div>

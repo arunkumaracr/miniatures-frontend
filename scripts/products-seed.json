@@ -1,0 +1,776 @@
+{
+  "assetsFolder": "/Users/arunkrithika/Downloads/miniatures_assets",
+  "adminKey": "supersecret123",
+  "apiBase": "http://localhost:5000",
+
+  "categories": [
+    { "id": "couple-miniatures",  "slug": "couple-miniatures",  "label": "Couple Miniatures",        "icon": "heart" },
+    { "id": "kitchen-brass",      "slug": "kitchen-brass",      "label": "Brass Kitchen Miniatures",  "icon": "utensils" },
+    { "id": "kitchen-iron",       "slug": "kitchen-iron",       "label": "Iron Kitchen Miniatures",   "icon": "flame" },
+    { "id": "kitchen-silver",     "slug": "kitchen-silver",     "label": "Silver Kitchen Miniatures", "icon": "sparkles" },
+    { "id": "real-miniature",     "slug": "real-miniature",     "label": "Real Miniatures",           "icon": "camera" },
+    { "id": "sinchan-panda",      "slug": "sinchan-panda",      "label": "Sinchan & Panda",           "icon": "star" },
+    { "id": "toys-miniature",     "slug": "toys-miniature",     "label": "Toy Miniatures",            "icon": "toy-brick" }
+  ],
+
+  "products": [
+    {
+      "title": "Romantic Bike Couple Miniature Set",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/bike_couple_set.webp",
+      "originalPrice": 499, "discountPrice": 349,
+      "ageRange": "14+", "badge": "Bestseller",
+      "rating": 4.8, "reviewCount": 24, "isTopSelling": true
+    },
+    {
+      "title": "Love Couple Figurine Set 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/couple_1.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.5, "reviewCount": 18, "isTopSelling": false
+    },
+    {
+      "title": "Love Couple Figurine Set 2",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/couple_2.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.5, "reviewCount": 12, "isTopSelling": false
+    },
+    {
+      "title": "Love Couple Figurine Set 3",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/couple_3.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.6, "reviewCount": 15, "isTopSelling": false
+    },
+    {
+      "title": "Love Couple Figurine Set 4",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/couple_4.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.4, "reviewCount": 10, "isTopSelling": false
+    },
+    {
+      "title": "Couple with Teddy Bear Miniature",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/couple_teddy.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "14+", "badge": "Gift Pick",
+      "rating": 4.9, "reviewCount": 32, "isTopSelling": true
+    },
+    {
+      "title": "Couple Dog Set Miniature",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/dog_set.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.5, "reviewCount": 8, "isTopSelling": false
+    },
+    {
+      "title": "Duck Couple Set Miniature 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/duck_set_1.webp",
+      "originalPrice": 349, "discountPrice": 249,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.3, "reviewCount": 7, "isTopSelling": false
+    },
+    {
+      "title": "Duck Couple Set Miniature",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/duck_set.webp",
+      "originalPrice": 349, "discountPrice": 249,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.4, "reviewCount": 9, "isTopSelling": false
+    },
+    {
+      "title": "Friends Miniature Figurine Set",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/frnds_set.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "14+", "badge": "New",
+      "rating": 4.7, "reviewCount": 20, "isTopSelling": false
+    },
+    {
+      "title": "Ice Cream Couple Miniature 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/icecream_couple_1.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.6, "reviewCount": 14, "isTopSelling": false
+    },
+    {
+      "title": "Ice Cream Couple Miniature 2",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/icecream_couple_2.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.5, "reviewCount": 11, "isTopSelling": false
+    },
+    {
+      "title": "Kung Fu Panda Couple Miniature",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/kunfu_panda.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "14+", "badge": "Fan Favourite",
+      "rating": 4.9, "reviewCount": 41, "isTopSelling": true
+    },
+    {
+      "title": "Married Couple Miniature 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/married_1.webp",
+      "originalPrice": 599, "discountPrice": 449,
+      "ageRange": "14+", "badge": "Gift Pick",
+      "rating": 4.8, "reviewCount": 28, "isTopSelling": true
+    },
+    {
+      "title": "Married Couple Miniature 2",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/married_2.webp",
+      "originalPrice": 599, "discountPrice": 449,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.7, "reviewCount": 19, "isTopSelling": false
+    },
+    {
+      "title": "Married Couple Miniature 3",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/married_3.webp",
+      "originalPrice": 599, "discountPrice": 449,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.7, "reviewCount": 16, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Couple Watch Set 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/mini_watch_1.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.5, "reviewCount": 13, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Couple Watch Set 2",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/mini_watch_2.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.4, "reviewCount": 10, "isTopSelling": false
+    },
+    {
+      "title": "Mother & Daughter Miniature Set",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/mother_daughter.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "14+", "badge": "Gift Pick",
+      "rating": 4.9, "reviewCount": 35, "isTopSelling": true
+    },
+    {
+      "title": "Panda Couple Set 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/panda_set_1.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.7, "reviewCount": 22, "isTopSelling": false
+    },
+    {
+      "title": "Panda Couple Set 2",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/panda_set_2.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.6, "reviewCount": 17, "isTopSelling": false
+    },
+    {
+      "title": "Panda Couple Set 4",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/panda_set_4.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.6, "reviewCount": 14, "isTopSelling": false
+    },
+    {
+      "title": "Pull-Back Car Miniature 1",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/pullback_car_1.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.4, "reviewCount": 9, "isTopSelling": false
+    },
+    {
+      "title": "Pull-Back Car Miniature 2",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/pullback_car_2.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.3, "reviewCount": 7, "isTopSelling": false
+    },
+    {
+      "title": "Umbrella Couple Miniature",
+      "categoryId": "couple-miniatures",
+      "imagePath": "couple_miniatures/umberla_couple.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "14+", "badge": "New",
+      "rating": 4.7, "reviewCount": 21, "isTopSelling": false
+    },
+
+    {
+      "title": "Miniature Ashok Pillar — Brass",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/ashok_pillar.webp",
+      "originalPrice": 599, "discountPrice": 449,
+      "ageRange": "12+", "badge": "Collector's Pick",
+      "rating": 4.8, "reviewCount": 19, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Brass Boiler",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/boiler.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 11, "isTopSelling": false
+    },
+    {
+      "title": "Brass Miniature Kitchen Set",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/brass_kitchen_set.webp",
+      "originalPrice": 899, "discountPrice": 699,
+      "ageRange": "12+", "badge": "Bestseller",
+      "rating": 4.9, "reviewCount": 47, "isTopSelling": true
+    },
+    {
+      "title": "Brass Kitchen Set — Side View",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/brass_kitchenset_side.webp",
+      "originalPrice": 899, "discountPrice": 699,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.8, "reviewCount": 31, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Bullock Cart",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/bullock_cart.webp",
+      "originalPrice": 699, "discountPrice": 549,
+      "ageRange": "12+", "badge": "Heritage",
+      "rating": 4.9, "reviewCount": 38, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Dining Table Set — Brass",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/diningtableset.webp",
+      "originalPrice": 799, "discountPrice": 599,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.7, "reviewCount": 24, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Dinner Set",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/dinner_set.webp",
+      "originalPrice": 699, "discountPrice": 529,
+      "ageRange": "12+", "badge": "Gift Pick",
+      "rating": 4.8, "reviewCount": 29, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Double Bullock Cart — Brass",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/double_bull_cart.webp",
+      "originalPrice": 799, "discountPrice": 599,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.8, "reviewCount": 22, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Table Fan",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/fan.webp",
+      "originalPrice": 499, "discountPrice": 379,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 15, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Hand Pump",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/hand_pump.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "12+", "badge": "Heritage",
+      "rating": 4.7, "reviewCount": 18, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Handi Set",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/handi_set.webp",
+      "originalPrice": 649, "discountPrice": 499,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.7, "reviewCount": 20, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Hawkins Pressure Cooker — Brass",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/hawkins_cooker.webp",
+      "originalPrice": 599, "discountPrice": 449,
+      "ageRange": "12+", "badge": "Nostalgic",
+      "rating": 4.9, "reviewCount": 52, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Brass Horse Cart",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/horse_cart.webp",
+      "originalPrice": 699, "discountPrice": 549,
+      "ageRange": "12+", "badge": "Heritage",
+      "rating": 4.8, "reviewCount": 26, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Kerosene Stove — Brass",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/kerosene_stove.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "12+", "badge": "Nostalgic",
+      "rating": 4.8, "reviewCount": 33, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Brass Kudam Set",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/kudam_set.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 17, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Oil Lamp",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/Lamp.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "12+", "badge": "Gift Pick",
+      "rating": 4.9, "reviewCount": 44, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Brass Lantern",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/lantern.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.7, "reviewCount": 21, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Pooja Thali Set — Brass",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/pooja_thali_set.webp",
+      "originalPrice": 649, "discountPrice": 499,
+      "ageRange": "12+", "badge": "Gift Pick",
+      "rating": 4.9, "reviewCount": 39, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Brass Sand Clock",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/sand_clock.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 14, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Telephone",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/telephone.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "12+", "badge": "Nostalgic",
+      "rating": 4.8, "reviewCount": 28, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Brass Weighing Machine",
+      "categoryId": "kitchen-brass",
+      "imagePath": "kitchen_miniatures/brass-items/Weighingmachine.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 12, "isTopSelling": false
+    },
+
+    {
+      "title": "Miniature Aruvamanai — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/aruvamanai.webp",
+      "originalPrice": 349, "discountPrice": 249,
+      "ageRange": "12+", "badge": "Heritage",
+      "rating": 4.7, "reviewCount": 23, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Dosa Karandi — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/dosa_karandi.webp",
+      "originalPrice": 299, "discountPrice": 219,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 14, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Dosa Tawa — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/dosa_tawa.webp",
+      "originalPrice": 349, "discountPrice": 259,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 18, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Double Stove — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/double_stove.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "12+", "badge": "Bestseller",
+      "rating": 4.8, "reviewCount": 31, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Fast Food Pan — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/fast_food_pan.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 16, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Iron Pan Small",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/iron_pan_small.webp",
+      "originalPrice": 299, "discountPrice": 219,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.4, "reviewCount": 9, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Iron Kitchen Set",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/iron_set.webp",
+      "originalPrice": 699, "discountPrice": 549,
+      "ageRange": "12+", "badge": "Bestseller",
+      "rating": 4.9, "reviewCount": 45, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Kadai Small — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/kadai_small.webp",
+      "originalPrice": 349, "discountPrice": 249,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 20, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Kuzhipaniyaram Pan — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/kuzhipan_small.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "12+", "badge": "Heritage",
+      "rating": 4.7, "reviewCount": 27, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Parotta Pan — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/parotta_pan.webp",
+      "originalPrice": 349, "discountPrice": 259,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 13, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Sambar Karandi — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/sambar_karandi.webp",
+      "originalPrice": 299, "discountPrice": 219,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.4, "reviewCount": 8, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Single Stove — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/singlestove.webp",
+      "originalPrice": 349, "discountPrice": 259,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 19, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Stone Set — Iron",
+      "categoryId": "kitchen-iron",
+      "imagePath": "kitchen_miniatures/iron-items/stone_set.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "12+", "badge": "Heritage",
+      "rating": 4.8, "reviewCount": 24, "isTopSelling": false
+    },
+
+    {
+      "title": "Miniature Tiffin Carrier — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/tiffin_carrier.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "12+", "badge": "Bestseller",
+      "rating": 4.9, "reviewCount": 41, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Tiffin Carrier 2 — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/tiffin_carrier_2.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.8, "reviewCount": 26, "isTopSelling": false
+    },
+    {
+      "title": "Silver Miniature Kitchen Set",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/silver_kitchenset.webp",
+      "originalPrice": 899, "discountPrice": 699,
+      "ageRange": "12+", "badge": "Bestseller",
+      "rating": 4.9, "reviewCount": 55, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Masala Box — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/masalabox.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "12+", "badge": "Gift Pick",
+      "rating": 4.8, "reviewCount": 33, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Three Tope Set — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/three_tope_set.webp",
+      "originalPrice": 649, "discountPrice": 499,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.7, "reviewCount": 22, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Grater — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/grater.webp",
+      "originalPrice": 349, "discountPrice": 259,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 14, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Kudam Small — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/kudam_small.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 17, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Pakkad — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/pakkad.webp",
+      "originalPrice": 349, "discountPrice": 259,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 12, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Plate Stand — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/plate_stand.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.6, "reviewCount": 16, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Round Plate — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/roundplate.webp",
+      "originalPrice": 299, "discountPrice": 219,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.4, "reviewCount": 10, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Square Plate — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/square_plate.webp",
+      "originalPrice": 299, "discountPrice": 219,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.4, "reviewCount": 9, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Button Carrier Small — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/button_carrier_small.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 11, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Whisk — Silver",
+      "categoryId": "kitchen-silver",
+      "imagePath": "kitchen_miniatures/silver-items/whisk.webp",
+      "originalPrice": 349, "discountPrice": 259,
+      "ageRange": "12+", "badge": "",
+      "rating": 4.5, "reviewCount": 13, "isTopSelling": false
+    },
+
+    {
+      "title": "Miniature Camera Collection 1",
+      "categoryId": "real-miniature",
+      "imagePath": "real-miniature/camera_1.webp",
+      "originalPrice": 799, "discountPrice": 599,
+      "ageRange": "14+", "badge": "Collector's Pick",
+      "rating": 4.9, "reviewCount": 38, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Camera Collection 2",
+      "categoryId": "real-miniature",
+      "imagePath": "real-miniature/camera_2.webp",
+      "originalPrice": 799, "discountPrice": 599,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.8, "reviewCount": 27, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Camera Collection 3",
+      "categoryId": "real-miniature",
+      "imagePath": "real-miniature/camera_3.webp",
+      "originalPrice": 799, "discountPrice": 599,
+      "ageRange": "14+", "badge": "",
+      "rating": 4.8, "reviewCount": 21, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Drawer Rings Set",
+      "categoryId": "real-miniature",
+      "imagePath": "real-miniature/draer_rings.jpg",
+      "originalPrice": 699, "discountPrice": 529,
+      "ageRange": "14+", "badge": "Unique",
+      "rating": 4.7, "reviewCount": 19, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Tailoring Machine",
+      "categoryId": "real-miniature",
+      "imagePath": "real-miniature/tailoring_machine.webp",
+      "originalPrice": 899, "discountPrice": 699,
+      "ageRange": "14+", "badge": "Heritage",
+      "rating": 4.9, "reviewCount": 44, "isTopSelling": true
+    },
+
+    {
+      "title": "Panda Bubble Head Figurine",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/panda_bubble_head.jpg",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.7, "reviewCount": 28, "isTopSelling": false
+    },
+    {
+      "title": "Silicon Panda Figurine",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/panda_silicon.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "6+", "badge": "New",
+      "rating": 4.8, "reviewCount": 34, "isTopSelling": true
+    },
+    {
+      "title": "Shinchan Figurine Collection",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/shinchan_1.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "6+", "badge": "Fan Favourite",
+      "rating": 4.9, "reviewCount": 52, "isTopSelling": true
+    },
+    {
+      "title": "Shinchan Bubble Head Figurine",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/sinchan_bubble_head.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "6+", "badge": "Fan Favourite",
+      "rating": 4.9, "reviewCount": 61, "isTopSelling": true
+    },
+    {
+      "title": "Shinchan Crawling Figurine",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/sinchan_crawling.webp",
+      "originalPrice": 399, "discountPrice": 299,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.7, "reviewCount": 23, "isTopSelling": false
+    },
+    {
+      "title": "Shinchan Regular Set Collection",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/sinchan_regular_set.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "6+", "badge": "Bestseller",
+      "rating": 4.8, "reviewCount": 43, "isTopSelling": true
+    },
+    {
+      "title": "Shinchan & Shiro Set",
+      "categoryId": "sinchan-panda",
+      "imagePath": "sinchan_panda_collections/sinchan_shiro.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "6+", "badge": "Gift Pick",
+      "rating": 4.8, "reviewCount": 36, "isTopSelling": false
+    },
+
+    {
+      "title": "Miniature Chair Set",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/chair_miniatures.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.6, "reviewCount": 18, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Classroom Table & Chair Set",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/class_room_tablechair_set.webp",
+      "originalPrice": 649, "discountPrice": 499,
+      "ageRange": "6+", "badge": "Bestseller",
+      "rating": 4.8, "reviewCount": 37, "isTopSelling": true
+    },
+    {
+      "title": "Miniature Basket",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/mini_basket.webp",
+      "originalPrice": 299, "discountPrice": 219,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.4, "reviewCount": 11, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Water Dispenser",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/mini_water_dispenser.webp",
+      "originalPrice": 449, "discountPrice": 329,
+      "ageRange": "6+", "badge": "New",
+      "rating": 4.7, "reviewCount": 24, "isTopSelling": false
+    },
+    {
+      "title": "Ratna Miniature Refrigerator",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/ratna_fridge.webp",
+      "originalPrice": 699, "discountPrice": 549,
+      "ageRange": "6+", "badge": "Bestseller",
+      "rating": 4.9, "reviewCount": 48, "isTopSelling": true
+    },
+    {
+      "title": "Ratna Miniature Mixer Grinder",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/ratna_mixer.webp",
+      "originalPrice": 599, "discountPrice": 449,
+      "ageRange": "6+", "badge": "Bestseller",
+      "rating": 4.8, "reviewCount": 39, "isTopSelling": true
+    },
+    {
+      "title": "Ratna Miniature Wardrobe",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/ratna_wardrobe.webp",
+      "originalPrice": 649, "discountPrice": 499,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.7, "reviewCount": 26, "isTopSelling": false
+    },
+    {
+      "title": "Saloni Miniature Wardrobe",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/saloni_wardrobe.webp",
+      "originalPrice": 649, "discountPrice": 499,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.7, "reviewCount": 22, "isTopSelling": false
+    },
+    {
+      "title": "Miniature Steel Trolley",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/steel_trolley.webp",
+      "originalPrice": 549, "discountPrice": 399,
+      "ageRange": "6+", "badge": "New",
+      "rating": 4.6, "reviewCount": 17, "isTopSelling": false
+    },
+    {
+      "title": "Toy Miniature Mixture 1",
+      "categoryId": "toys-miniature",
+      "imagePath": "toys_miniature/toy_mixture_1.webp",
+      "originalPrice": 499, "discountPrice": 369,
+      "ageRange": "6+", "badge": "",
+      "rating": 4.5, "reviewCount": 14, "isTopSelling": false
+    }
+  ]
+}

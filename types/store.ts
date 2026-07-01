@@ -47,7 +47,7 @@ export interface OrderItem {
   price: number;
 }
 
-export type PaymentMethod = "cod" | "card" | "upi";
+export type PaymentMethod = "cod" | "card" | "upi" | "razorpay";
 
 export interface Order {
   id?: string;

@@ -7,7 +7,7 @@ const VALUES = [
   {
     icon: Heart,
     title: "Made with Love",
-    desc: "Every toy we source is chosen with a parent's eye — safe, enriching, and genuinely fun for kids of all ages.",
+    desc: "Every toy we source is chosen with a parent's eye - safe, enriching, and genuinely fun for kids of all ages.",
     color: "bg-brand-50 text-brand-500",
   },
   {
@@ -31,10 +31,10 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { year: "2019", event: "Founded in Bengaluru with a vision to make quality toys accessible to every Indian family." },
-  { year: "2020", event: "Launched our first product line — wooden Montessori toys hand-selected from trusted makers." },
-  { year: "2022", event: "Crossed 50,000 happy customers across 20+ Indian cities." },
-  { year: "2024", event: "Expanded to 200+ SKUs across 6 categories, serving 2 Lakh+ families." },
+  { year: "The Beginning", event: "It all started with a passion — collecting tiny, detailed miniature things. What began as a personal hobby slowly grew into something bigger: a dream to share that joy with others." },
+  { year: "The First Shop", event: "We opened our first physical store 'Miniatures & Toys' in Tamil Nadu. Walking in felt like stepping into a tiny world — every shelf filled with handpicked miniature figurines, kitchen sets, and collectibles." },
+  { year: "Going Online", event: "As demand grew beyond our local reach, we took the leap onto online platforms — making our miniatures available to collectors and gifters all across India." },
+  { year: "Today", event: "Miniaturestoys.in is now a fully online brand, focused 100% on delivering the best miniature toys and collectibles directly to your doorstep — from couple figurines to brass kitchen sets and character collectibles." },
 ];
 
 export default function AboutPage() {
@@ -49,7 +49,7 @@ export default function AboutPage() {
           Bringing Joy to<br />Every Childhood
         </h1>
         <p className="mt-5 text-base text-white/80 font-medium max-w-xl mx-auto leading-relaxed">
-          Miniature Toys started with a simple belief — every child deserves toys that inspire, challenge, and delight. We're a Bengaluru-based brand on a mission to make that a reality for families across India.
+          Miniature Toys started with a simple passion — collecting tiny, beautiful things. From a small physical shop in Tamil Nadu to a fully online platform, we now bring handpicked miniature collectibles to doorsteps across India.
         </p>
         <div className="mt-8 flex items-center justify-center gap-6 text-sm font-black">
           <div className="text-center">
@@ -76,13 +76,13 @@ export default function AboutPage() {
           <div>
             <p className="text-xs font-black uppercase tracking-widest text-brand-500 mb-3">Our Mission</p>
             <h2 className="text-3xl font-black text-slate-900 leading-tight">
-              Play is the work<br />of childhood.
+              Tiny things,<br />big happiness.
             </h2>
             <p className="mt-4 text-slate-500 font-medium leading-relaxed">
-              We curate toys that go beyond entertainment — every product in our catalog is chosen to support developmental milestones, encourage creativity, and create lasting memories between children and the people who love them.
+              Miniatures & Toys was born from a personal love of collecting tiny, detailed figurines. What started as a hobby became a real shop in Tamil Nadu — and today it's a fully online brand delivering joy to collectors and gift-givers all over India.
             </p>
             <p className="mt-3 text-slate-500 font-medium leading-relaxed">
-              From wooden Montessori sets to soft plushies and strategy puzzles, Miniature Toys is your one-stop destination for purposeful play.
+              From couple miniatures to brass kitchen sets and cartoon collectibles, every piece we carry is handpicked for its detail, charm, and ability to make someone smile.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -118,7 +118,7 @@ export default function AboutPage() {
           <Truck className="h-10 w-10 text-brand-400 mx-auto mb-4 stroke-[1.5]" />
           <h2 className="text-2xl font-black text-slate-900">Start Shopping Today</h2>
           <p className="text-sm text-slate-500 font-medium mt-2 max-w-sm mx-auto">
-            Free shipping on orders above ₹999. Easy 30-day returns. 100% safe products.
+            Free shipping on orders above ₹1999.
           </p>
           <Link
             href="/"

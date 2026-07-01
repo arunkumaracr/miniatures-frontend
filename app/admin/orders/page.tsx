@@ -9,7 +9,7 @@ import Image from "next/image";
 type OrderStatus = "pending" | "processing" | "shipped" | "delivered" | "cancelled";
 
 interface OrderItem {
-  productId: string;
+  productId: string | null;
   quantity: number;
   price: number;
   title?: string;
@@ -358,7 +358,7 @@ export default function OrdersPage() {
                         <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-white border border-slate-200 flex-shrink-0">
                           <Image
                             src={item.imageUrl}
-                            alt={item.title ?? item.productId}
+                            alt={item.title ?? item.productId ?? ""}
                             fill
                             className="object-cover"
                             sizes="48px"
@@ -371,7 +371,7 @@ export default function OrdersPage() {
                       )}
                       <div className="flex-1 min-w-0">
                         <p className="text-xs font-bold text-slate-800 line-clamp-1">
-                          {item.title ?? item.productId}
+                          {item.title ?? item.productId ?? "Deleted Product"}
                         </p>
                         <p className="text-xs text-slate-400 font-medium mt-0.5">
                           Qty: {item.quantity} × ₹{Number(item.price).toFixed(2)}

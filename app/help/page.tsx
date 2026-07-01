@@ -27,7 +27,7 @@ const TOPICS: { icon: React.ElementType; label: string; color: string; faqs: Faq
       },
       {
         q: "Do you offer free shipping?",
-        a: "Yes! Orders above ₹999 qualify for free standard shipping anywhere in India.",
+        a: "Yes! Orders above ₹1999 qualify for free standard shipping anywhere in India.",
       },
       {
         q: "Can I track my order?",
@@ -46,19 +46,19 @@ const TOPICS: { icon: React.ElementType; label: string; color: string; faqs: Faq
     faqs: [
       {
         q: "What is your return policy?",
-        a: "We accept returns within 30 days of delivery. Items must be unused, in original packaging, with all tags attached.",
+        a: "We offer a 7-day return policy from the date of delivery. Items must be unused, unassembled, and in their original packaging with all parts intact. Returns are accepted only for items that are damaged/defective on arrival, wrong product delivered, or significantly different from the description.",
+      },
+      {
+        q: "What items are NOT eligible for return?",
+        a: "Returns are not accepted if the item has been used, assembled, or repainted; if the packaging has been destroyed; if the return request is raised after 7 days of delivery; or if the damage was caused by the buyer after delivery.",
       },
       {
         q: "How do I initiate a return?",
-        a: "Email us at support@miniaturetoys.in with your order ID and reason for return. We'll arrange a free pickup within 2 business days.",
+        a: "Email us at support@miniaturetoys.in within 7 days of delivery with your Order ID, reason for return, and clear photos of the item and packaging. We'll review and get back to you promptly.",
       },
       {
         q: "When will I get my refund?",
-        a: "Refunds are processed within 5–7 business days after we receive and inspect the returned item. It will be credited to your original payment method.",
-      },
-      {
-        q: "Can I exchange for a different product?",
-        a: "Yes, exchanges are free of charge. Contact us with your order ID and the product you'd like instead.",
+        a: "Refunds are processed within 5–7 business days after we receive and inspect the returned item. It will be credited to your original payment method. For COD orders, refunds are issued via bank transfer or UPI.",
       },
     ],
   },
@@ -69,11 +69,11 @@ const TOPICS: { icon: React.ElementType; label: string; color: string; faqs: Faq
     faqs: [
       {
         q: "What payment methods do you accept?",
-        a: "We accept UPI (Google Pay, PhonePe, Paytm), Net Banking, Credit/Debit Cards, and Cash on Delivery (COD).",
+        a: "We accept UPI (Google Pay, PhonePe, Paytm), Net Banking, Credit/Debit Cards.",
       },
       {
         q: "Is COD available for all orders?",
-        a: "COD is available for orders up to ₹5,000 in most pin codes. You'll see COD as an option at checkout if it's available for your location.",
+        a: "Cash on Delivery (COD) is currently not available. We accept UPI, Credit/Debit Cards, and Net Banking. We're working on enabling COD soon — stay tuned!",
       },
       {
         q: "Is my payment information secure?",
@@ -266,10 +266,10 @@ export default function HelpPage() {
                 <p className="text-xs text-slate-400 font-medium mt-0.5">Mon–Sat, 10 AM – 6 PM</p>
               </div>
               <a
-                href="tel:+918012345678"
+                href="tel:+919159947106"
                 className="text-xs font-black text-green-600 hover:text-green-700 transition-colors"
               >
-                +91 80 1234 5678
+                +91 9159947106
               </a>
             </div>
 

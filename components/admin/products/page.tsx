@@ -151,8 +151,8 @@ export default function ProductsPage() {
                   </td>
                   <td className="px-4 py-3 text-slate-500 capitalize">{product.categoryId}</td>
                   <td className="px-4 py-3">
-                    <span className="font-bold text-slate-800">${product.discountPrice}</span>
-                    <span className="text-slate-400 line-through ml-2 text-xs">${product.originalPrice}</span>
+                    <span className="font-bold text-slate-800">₹{product.discountPrice}</span>
+                    <span className="text-slate-400 line-through ml-2 text-xs">₹{product.originalPrice}</span>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex flex-col gap-1">

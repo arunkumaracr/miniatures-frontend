@@ -17,9 +17,9 @@ const CONTACT_CARDS = [
   {
     icon: Phone,
     title: "Call Us",
-    detail: "+91 80 1234 5678",
+    detail: "+91 9159947106",
     sub: "Mon–Sat, 10 AM – 6 PM",
-    href: "tel:+918012345678",
+    href: "tel:+919159947106",
     color: "bg-green-50 text-green-600",
   },
   {

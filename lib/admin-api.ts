@@ -128,6 +128,69 @@ export async function updateOrderStatus(id: string, status: string) {
   return safeJson(res);
 }
 
+// ─── NEW LAUNCHES ─────────────────────────────
+export async function getNewLaunches() {
+  const res = await fetch(`${BASE_URL}/api/new-launches`);
+  return res.json();
+}
+
+export async function createNewLaunch(data: { title: string; videoUrl: string; thumbnailUrl?: string }) {
+  const res = await fetch(`${BASE_URL}/api/new-launches`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+
+export async function deleteNewLaunch(id: string) {
+  const res = await fetch(`${BASE_URL}/api/new-launches/${id}`, {
+    method: "DELETE",
+    headers,
+  });
+  return res.json();
+}
+
+// ─── VIDEO UPLOAD ─────────────────────────────
+export function uploadVideo(
+  file: File,
+  onProgress?: (pct: number) => void
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const formData = new FormData();
+    formData.append("video", file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${BASE_URL}/api/upload/video`);
+    xhr.setRequestHeader("x-admin-key", ADMIN_KEY);
+
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable && onProgress) {
+        onProgress(Math.round((e.loaded / e.total) * 100));
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try {
+          const data = JSON.parse(xhr.responseText);
+          if (!data.videoUrl) reject(new Error(data.error || "Video upload failed"));
+          else resolve(data.videoUrl);
+        } catch {
+          reject(new Error("Invalid server response"));
+        }
+      } else {
+        reject(new Error(`Upload failed (${xhr.status})`));
+      }
+    };
+
+    xhr.onerror = () => reject(new Error("Network error — check your connection"));
+    xhr.ontimeout = () => reject(new Error("Upload timed out — try a smaller file"));
+    xhr.timeout = 5 * 60 * 1000; // 5 min timeout
+    xhr.send(formData);
+  });
+}
+
 // ─── IMAGE UPLOAD ─────────────────────────────
 export async function uploadImage(file: File): Promise<string> {
   const formData = new FormData();

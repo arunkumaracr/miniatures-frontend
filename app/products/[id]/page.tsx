@@ -189,10 +189,10 @@ export default function ProductDetailsPage({ params }: PageProps) {
               </div>
 
               {/* Description */}
-              <p className="text-sm font-medium text-slate-500 leading-relaxed max-w-xl">
+              {/* <p className="text-sm font-medium text-slate-500 leading-relaxed max-w-xl">
                 Encourage developmental growth, critical reasoning, and hours of immersive
                 adventure with this authentic product collection built for creative play.
-              </p>
+              </p> */}
 
               {/* Availability */}
               <div className="w-fit bg-[#fef3ec] text-brand-700 rounded-md px-4 py-2.5 text-xs font-extrabold border border-brand-100/30 flex items-center gap-1.5 shadow-sm">
@@ -203,15 +203,15 @@ export default function ProductDetailsPage({ params }: PageProps) {
               </div>
 
               {/* Age Range */}
-              {product.ageRange && (
+              {/* {product.ageRange && (
                 <div className="text-xs font-bold text-slate-500">
                   Suitable Age:{" "}
                   <span className="text-slate-800">{product.ageRange}</span>
                 </div>
-              )}
+              )} */}
 
               {/* Variants */}
-              <div className="space-y-1.5 max-w-sm">
+              {/* <div className="space-y-1.5 max-w-sm">
                 <label className="text-xs font-black text-slate-500 uppercase tracking-wider block">
                   Variants / Size
                 </label>
@@ -220,7 +220,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
                   <option>Deluxe Collector Set</option>
                   <option>Premium Gift Box</option>
                 </select>
-              </div>
+              </div> */}
 
               {/* Quantity + Wishlist + Cart */}
               <div className="flex flex-wrap items-center gap-3 pt-3">

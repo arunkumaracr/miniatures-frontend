@@ -1,4 +1,4 @@
-// components/hero-slider.tsx
+// components/hero/hero-slider.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -16,139 +16,152 @@ interface SlideItem {
   bgHex: string;
   accentColor: string;
   imageUrl: string;
+  imagePosition?: string;
 }
 
 const SLIDE_DATA: SlideItem[] = [
   {
     id: 1,
-    eyebrow: "NEW COLLECTION",
-    titleFirstLine: "Tiny Details,",
-    titleSecondLine: "Big Emotions. Shop Couple Miniatures.",
-    subtext: "Handcrafted couple figurines that tell your love story — shelf-ready & gift-perfect.",
+    eyebrow: "🔥 TRENDING COLLECTION",
+    titleFirstLine: "Cute Miniature Toys",
+    titleSecondLine: "For Every Home & Heart.",
+    subtext: "Shop the most loved miniature figurines, couple sets & character collectibles — perfect gifts starting at ₹199.",
     buttonText: "Shop Now →",
     href: "/categories/all",
-    bgHex: "bg-[#FFF9EA]",
+    bgHex: "#FFF9EA",
     accentColor: "bg-orange-500 hover:bg-orange-600",
-    imageUrl: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=1600",
+    imagePosition: "center center",
   },
   {
     id: 2,
-    eyebrow: "TRENDING NOW",
-    titleFirstLine: "Miniature Kitchens",
-    titleSecondLine: "That Steal Every Heart.",
-    subtext: "Perfectly scaled kitchen sets — collect, display, or gift with love.",
-    buttonText: "Explore Collection →",
-    href: "/categories/all",
-    bgHex: "bg-[#fff5ee]",
+    eyebrow: "⭐ BESTSELLER",
+    titleFirstLine: "Miniature Kitchen Sets",
+    titleSecondLine: "Brass, Iron & Silver.",
+    subtext: "Tiny kitchens with real detail — brass, iron & silver sets loved by collectors. Great for gifting & home decor.",
+    buttonText: "Explore Kitchen Sets →",
+    href: "/categories/kitchen-brass",
+    bgHex: "#fff5ee",
     accentColor: "bg-brand-500 hover:bg-brand-600",
-    imageUrl: "/banner-2.webp",
+    imageUrl: "/kitchenset_banner.png",
+    imagePosition: "center center",
   },
   {
     id: 3,
-    eyebrow: "COLLECTOR'S PICK",
-    titleFirstLine: "Real Metal. Real Detail.",
-    titleSecondLine: "Real Passion.",
-    subtext: "Diecast scale models built for true collectors — every curve, every chrome.",
-    buttonText: "Shop Diecast →",
-    href: "/categories/all",
-    bgHex: "bg-[#F0F4FF]",
+    eyebrow: "🐼 FAN FAVOURITE",
+    titleFirstLine: "Shin-chan, Panda &",
+    titleSecondLine: "Cartoon Collectibles.",
+    subtext: "Bring your favourite cartoon characters home — premium resin figurines, perfect for desks, shelves & gifting.",
+    buttonText: "Shop Characters →",
+    href: "/categories/sinchan-panda",
+    bgHex: "#EEF2FF",
     accentColor: "bg-indigo-600 hover:bg-indigo-700",
-    imageUrl: "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&q=80&w=1000",
+    imageUrl: "/panda_banner.webp",
+    imagePosition: "center 20%",
   },
   {
     id: 4,
-    eyebrow: "LIMITED OFFER",
-    titleFirstLine: "Own a Little World",
-    titleSecondLine: "of Your Own.",
-    subtext: "Miniature showpieces starting at just ₹299 — curated for collectors & gifters.",
-    buttonText: "Grab the Deal →",
-    href: "/categories/all",
-    bgHex: "bg-[#F0FFF7]",
+    eyebrow: "🎁 GIFT SPECIAL",
+    titleFirstLine: "Couple Miniatures",
+    titleSecondLine: "Made for Your Story.",
+    subtext: "Romantic miniature sets for anniversaries, birthdays & weddings — unique gifts that tell your love story.",
+    buttonText: "Shop Couple Sets →",
+    href: "/categories/couple-miniatures",
+    bgHex: "#F0FFF7",
     accentColor: "bg-emerald-500 hover:bg-emerald-600",
-    imageUrl: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&q=80&w=1000",
+    imageUrl: "/banner_couple_toys.webp",
+    imagePosition: "center center",
   },
 ];
+
+const SLIDE_COUNT = SLIDE_DATA.length;
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-slide every 6 seconds to keep user engagement high
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDE_DATA.length);
-    }, 6000);
+      setCurrentSlide((prev) => (prev + 1) % SLIDE_COUNT);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="w-full relative overflow-hidden h-[420px] sm:h-[500px] lg:h-[600px]">
-      {/* Slide Container Wrapper */}
-      <div className="w-full h-full relative">
+    <section
+      className="w-full relative overflow-hidden"
+      style={{ height: "clamp(320px, 75vw, 780px)" }}
+    >
+      {/* Horizontal rail — all slides in a row, container slides left */}
+      <div
+        className="flex h-full transition-transform duration-700 ease-in-out"
+        style={{
+          width: `${SLIDE_COUNT * 100}%`,
+          transform: `translateX(-${currentSlide * (100 / SLIDE_COUNT)}%)`,
+        }}
+      >
         {SLIDE_DATA.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 w-full h-full ${slide.bgHex} flex items-center transition-all duration-700 ease-in-out ${
-              index === currentSlide 
-                ? "opacity-100 translate-x-0 z-10" 
-                : "opacity-0 translate-x-full z-0"
-            }`}
+            className="relative h-full flex items-center overflow-hidden"
+            style={{
+              width: `${100 / SLIDE_COUNT}%`,
+              backgroundColor: slide.bgHex,
+            }}
           >
-            <div className="max-w-7xl mx-auto w-full h-full px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 items-center relative">
-              
-              {/* Text Layout Element */}
-              <div className="md:col-span-6 z-20 space-y-4 md:space-y-6 text-left animate-in fade-in slide-in-from-left-8 duration-500">
-                <span className="text-sm sm:text-base font-black uppercase tracking-wider text-brand-600 block tracking-[0.15em]">
+            {/* Background image */}
+            <Image
+              src={slide.imageUrl}
+              alt={slide.titleFirstLine}
+              fill
+              priority={index === 0}
+              className="object-cover"
+              style={{ objectPosition: slide.imagePosition ?? "center center" }}
+              sizes="100vw"
+            />
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/20 sm:bg-gradient-to-r sm:from-black/65 sm:via-black/25 sm:to-transparent" />
+
+            {/* Text content */}
+            <div className="relative z-20 max-w-7xl mx-auto w-full px-5 sm:px-6 lg:px-8">
+              <div className="max-w-lg space-y-3 sm:space-y-4 md:space-y-5">
+                <span className="text-[10px] sm:text-sm font-black uppercase tracking-[0.15em] text-orange-300 block">
                   {slide.eyebrow}
                 </span>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.10]">
-                  {slide.titleFirstLine} <br />
-                  <span className="text-slate-800">{slide.titleSecondLine}</span>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-[1.15]">
+                  {slide.titleFirstLine}
+                  <br />
+                  <span className="text-white/80">{slide.titleSecondLine}</span>
                 </h1>
 
-                <p className="text-sm sm:text-base text-slate-500 font-medium max-w-sm leading-relaxed">
+                <p className="text-xs sm:text-sm text-white/70 font-medium max-w-sm leading-relaxed">
                   {slide.subtext}
                 </p>
 
                 <Link
                   href={slide.href}
-                  className={`inline-flex items-center rounded-full ${slide.accentColor} text-white font-extrabold text-sm px-8 py-3.5 shadow-md active:scale-95 transition-all`}
+                  className={`inline-flex items-center rounded-full ${slide.accentColor} text-white font-extrabold text-xs sm:text-sm px-5 sm:px-7 py-2.5 sm:py-3 shadow-md active:scale-95 transition-all`}
                 >
                   {slide.buttonText}
                 </Link>
               </div>
-
-              {/* Graphical Circular Banner Element (Hidden on small mobile viewports) */}
-              <div className="hidden md:block md:col-span-6 h-full relative z-10 animate-in fade-in zoom-in-95 duration-700">
-                {/* The curved semi-circle layout clip matching the  template style */}
-                <div className="absolute right-0 bottom-0 top-10 w-[110%] h-[90%] bg-white rounded-l-full overflow-hidden shadow-2xl shadow-slate-200 border-l border-white">
-                  <Image
-                    src={slide.imageUrl}
-                    alt="Toy Campaign Advertisement Showcase"
-                    fill
-                    priority={index === 0}
-                    className="object-cover object-center"
-                    sizes="(max-width: 1200px) 50vw, 40vw"
-                  />
-                </div>
-              </div>
-
             </div>
           </div>
         ))}
       </div>
 
-      {/* Navigation Dot Indicators Layer matching  design dots spacing exactly */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+      {/* Dot navigation */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
         {SLIDE_DATA.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={`transition-all duration-300 rounded-full ${
-              index === currentSlide 
-                ? "w-8 h-2.5 bg-brand-500" // Active stretched layout dot parameter
-                : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
+              index === currentSlide
+                ? "w-8 h-2 bg-white"
+                : "w-2 h-2 bg-white/40 hover:bg-white/60"
             }`}
           />
         ))}

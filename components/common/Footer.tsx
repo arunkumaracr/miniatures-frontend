@@ -23,7 +23,7 @@ export function Footer() {
             <Truck className="h-10 w-10 flex-shrink-0 stroke-[1.5]" />
             <div className="text-left">
               <h4 className="text-sm font-black uppercase tracking-wider">Free Shipping</h4>
-              <p className="text-xs text-brand-100 font-medium mt-0.5">When ordering over $100</p>
+              <p className="text-xs text-brand-100 font-medium mt-0.5">When ordering over ₹1999</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ export function Footer() {
             <RotateCcw className="h-10 w-10 flex-shrink-0 stroke-[1.5]" />
             <div className="text-left">
               <h4 className="text-sm font-black uppercase tracking-wider">Free Return</h4>
-              <p className="text-xs text-brand-100 font-medium mt-0.5">Get Return within 30 days</p>
+              <p className="text-xs text-brand-100 font-medium mt-0.5">Get Return within 3 days</p>
             </div>
           </div>
 
@@ -92,8 +92,8 @@ export function Footer() {
             <ul className="space-y-3 text-sm font-medium text-slate-400">
               <li><Link href="/terms" className="hover:text-brand-500 transition-colors">Terms & Conditions</Link></li>
               <li><Link href="/privacy" className="hover:text-brand-500 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/help" className="hover:text-brand-500 transition-colors">Returns Policy</Link></li>
-              <li><Link href="/help" className="hover:text-brand-500 transition-colors">Shipping Info</Link></li>
+              {/* <li><Link href="/help" className="hover:text-brand-500 transition-colors">Returns Policy</Link></li>
+              <li><Link href="/help" className="hover:text-brand-500 transition-colors">Shipping Info</Link></li> */}
             </ul>
           </div>
 
@@ -127,7 +127,7 @@ export function Footer() {
 
         {/* Bottom copyright hairline bar */}
         <div className="w-full border-t border-slate-800 mt-12 pt-6 text-center text-xs font-semibold text-slate-500 tracking-wide">
-          &copy; {new Date().getFullYear()} Miniatures & Toys. All Rights Reserved. Curran curations sequence layout.
+          &copy; {new Date().getFullYear()} Miniatures & Toys. All Rights Reserved.
         </div>
       </div>
 
